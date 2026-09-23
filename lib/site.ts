@@ -20,6 +20,16 @@ export const CONTACT = {
   ] as const,
 };
 
+export const CONTACT_METHODS = [
+  { kind: "email", label: "Email", value: CONTACT.email },
+  { kind: "phone", label: "Phone", value: CONTACT.phone },
+  { kind: "address", label: "Office", value: CONTACT.address },
+].filter((method) => Boolean(method.value.trim()));
+
+export const ACTIVE_SOCIALS = CONTACT.socials.filter(
+  (social) => Boolean(social.href) && social.href !== "#"
+);
+
 export type NavChild = { label: string; href: string };
 
 export type NavItem = {

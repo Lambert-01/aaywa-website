@@ -10,7 +10,7 @@ import {
   Youtube,
   type LucideIcon,
 } from "lucide-react";
-import { CONTACT } from "@/lib/site";
+import { CONTACT_METHODS, ACTIVE_SOCIALS } from "@/lib/site";
 import PageHero from "@/components/ui/PageHero";
 import ContactForm from "@/components/ui/ContactForm";
 import Reveal from "@/components/ui/Reveal";
@@ -51,8 +51,8 @@ export default function ContactPage() {
                 Start the conversation.
               </h2>
               <p className="mt-3 text-sm leading-6 text-forest/60">
-                The form below is a front-end placeholder and will be connected to
-                AAYWA&apos;s official communication channel before launch.
+                Tell us who you are and how you&apos;d like to connect with AAYWA —
+                we reply to every message.
               </p>
               <div className="mt-8">
                 <ContactForm />
@@ -64,41 +64,39 @@ export default function ContactPage() {
             <Reveal delay={0.05}>
               <div className="rounded-[1.6rem] bg-forest p-7 text-cream sm:p-8">
                 <h2 className="font-serif text-2xl tracking-tight">Other ways to connect</h2>
-                <ul className="mt-6 space-y-5 text-sm">
-                  <li className="flex items-center gap-4">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
-                      <Mail size={18} aria-hidden />
-                    </span>
-                    <div>
-                      <div className="font-bold">Email</div>
-                      <div className="text-cream/65">
-                        {CONTACT.email || "Official email to be published."}
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
-                      <Phone size={18} aria-hidden />
-                    </span>
-                    <div>
-                      <div className="font-bold">Phone</div>
-                      <div className="text-cream/65">
-                        {CONTACT.phone || "Official phone to be published."}
-                      </div>
-                    </div>
-                  </li>
-                  <li className="flex items-center gap-4">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
-                      <MapPin size={18} aria-hidden />
-                    </span>
-                    <div>
-                      <div className="font-bold">Office</div>
-                      <div className="text-cream/65">
-                        {CONTACT.address || "Office location to be published."}
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                {CONTACT_METHODS.length > 0 ? (
+                  <ul className="mt-6 space-y-5 text-sm">
+                    {CONTACT_METHODS.map((method) => (
+                      <li key={method.kind} className="flex items-center gap-4">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
+                          {method.kind === "email" ? (
+                            <Mail size={18} aria-hidden />
+                          ) : method.kind === "phone" ? (
+                            <Phone size={18} aria-hidden />
+                          ) : (
+                            <MapPin size={18} aria-hidden />
+                          )}
+                        </span>
+                        <div>
+                          <div className="font-bold">{method.label}</div>
+                          <div className="text-cream/65">
+                            {method.kind === "email" ? (
+                              <a href={`mailto:${method.value}`} className="transition-colors hover:text-gold">
+                                {method.value}
+                              </a>
+                            ) : (
+                              method.value
+                            )}
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="mt-6 text-sm leading-6 text-cream/65">
+                    Official contact details will be published here.
+                  </p>
+                )}
               </div>
             </Reveal>
 
@@ -108,23 +106,27 @@ export default function ContactPage() {
                 <p className="mt-2 text-sm text-forest/60">
                   Official social channels will be linked here as they go live.
                 </p>
-                <ul className="mt-5 flex flex-wrap gap-2.5">
-                  {CONTACT.socials.map((social) => {
-                    const Icon = SOCIAL_ICONS[social.icon];
-                    return (
-                      <li key={social.icon}>
-                        <a
-                          href={social.href}
-                          aria-label={`${social.label} (coming soon)`}
-                          title={social.label}
-                          className="grid h-11 w-11 place-items-center rounded-full border border-forest/15 text-forest/70 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-forest"
-                        >
-                          <Icon size={18} aria-hidden />
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
+                {ACTIVE_SOCIALS.length > 0 && (
+                  <ul className="mt-5 flex flex-wrap gap-2.5">
+                    {ACTIVE_SOCIALS.map((social) => {
+                      const Icon = SOCIAL_ICONS[social.icon];
+                      return (
+                        <li key={social.icon}>
+                          <a
+                            href={social.href}
+                            target={social.href.startsWith("http") ? "_blank" : undefined}
+                            rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+                            aria-label={social.label}
+                            title={social.label}
+                            className="grid h-11 w-11 place-items-center rounded-full border border-forest/15 text-forest/70 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-forest"
+                          >
+                            <Icon size={18} aria-hidden />
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
               </div>
             </Reveal>
           </div>

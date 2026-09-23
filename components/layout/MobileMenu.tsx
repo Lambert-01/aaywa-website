@@ -46,7 +46,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-paper lg:hidden"
+          className="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-paper xl:hidden"
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

@@ -9,17 +9,47 @@ type NewsletterFormProps = {
 
 export default function NewsletterForm({ tone = "dark" }: NewsletterFormProps) {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "error" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "error" | "success">("idle");
+  const [error, setError] = useState("");
   const light = tone === "light";
 
-  function submit(event: FormEvent) {
+  async function submit(event: FormEvent) {
     event.preventDefault();
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     if (!valid) {
       setStatus("error");
+      setError("Please enter a valid email address.");
       return;
     }
-    setStatus("success");
+    setStatus("sending");
+    setError("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+      const body = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        configured?: boolean;
+        error?: string;
+      };
+      if (res.ok && body.ok) {
+        setStatus("success");
+      } else if (res.status === 501) {
+        setStatus("idle");
+        setError(
+          body.error ?? "Mailing list subscription is not enabled yet. Please try again later."
+        );
+      } else {
+        setStatus("error");
+        setError(body.error ?? "We could not subscribe you right now.");
+      }
+    } catch {
+      setStatus("error");
+      setError("There was a network problem subscribing you.");
+    }
   }
 
   if (status === "success") {
@@ -31,7 +61,7 @@ export default function NewsletterForm({ tone = "dark" }: NewsletterFormProps) {
         role="status"
       >
         <CheckCircle2 size={18} className="text-leaf" aria-hidden />
-        Thank you — you&apos;re on the list. AAYWA news will arrive in your inbox soon.
+        Thank you — you&apos;re subscribed. AAYWA news will arrive in your inbox soon.
       </p>
     );
   }
@@ -59,15 +89,16 @@ export default function NewsletterForm({ tone = "dark" }: NewsletterFormProps) {
         />
         <button
           type="submit"
-          className="inline-flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-gold px-6 text-sm font-bold text-forest transition-all hover:bg-[#e2bc66] active:scale-95"
+          disabled={status === "sending"}
+          className="inline-flex h-12 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full bg-gold px-6 text-sm font-bold text-forest transition-all hover:bg-[#e2bc66] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Subscribe
+          {status === "sending" ? "Subscribing…" : "Subscribe"}
           <Send size={14} aria-hidden />
         </button>
       </div>
       {status === "error" && (
         <p id="newsletter-error" className="mt-2 text-sm font-medium text-red-700" role="alert">
-          Please enter a valid email address.
+          {error}
         </p>
       )}
     </form>

@@ -8,7 +8,7 @@ import {
   Youtube,
   type LucideIcon,
 } from "lucide-react";
-import { CONTACT, FOOTER_NAV, SITE } from "@/lib/site";
+import { CONTACT_METHODS, ACTIVE_SOCIALS, FOOTER_NAV, SITE } from "@/lib/site";
 import NewsletterForm from "@/components/ui/NewsletterForm";
 
 const SOCIAL_ICONS: Record<string, LucideIcon> = {
@@ -49,15 +49,17 @@ export default function Footer() {
               finance and market access.
             </p>
 
-            {CONTACT.socials.length > 0 && (
+            {ACTIVE_SOCIALS.length > 0 && (
               <ul className="mt-7 flex flex-wrap gap-2.5" aria-label="AAYWA social media">
-                {CONTACT.socials.map((social) => {
+                {ACTIVE_SOCIALS.map((social) => {
                   const Icon = SOCIAL_ICONS[social.icon];
                   return (
                     <li key={social.icon}>
                       <a
                         href={social.href}
-                        aria-label={`${social.label} (coming soon)`}
+                        target={social.href.startsWith("http") ? "_blank" : undefined}
+                        rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+                        aria-label={`${social.label}`}
                         title={social.label}
                         className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-cream/70 transition-all duration-300 hover:border-gold hover:bg-gold hover:text-forest"
                       >
@@ -95,9 +97,21 @@ export default function Footer() {
           <div className="text-sm text-cream/55">
             <div className="font-bold uppercase tracking-[0.14em] text-cream/70">Contact</div>
             <div className="mt-3 flex flex-col gap-1.5">
-              <span>{CONTACT.email || "Official contact email to be published."}</span>
-              <span>{CONTACT.phone || "Official contact phone to be published."}</span>
-              <span>{CONTACT.address || "Office location to be published."}</span>
+              {CONTACT_METHODS.length > 0 ? (
+                CONTACT_METHODS.map((method) => (
+                  <span key={method.kind}>
+                    {method.kind === "email" ? (
+                      <a href={`mailto:${method.value}`} className="transition-colors hover:text-gold">
+                        {method.value}
+                      </a>
+                    ) : (
+                      method.value
+                    )}
+                  </span>
+                ))
+              ) : (
+                <span>Official contact details will be published here.</span>
+              )}
             </div>
           </div>
           <div className="grid grid-cols-3 gap-2 self-end text-xs">

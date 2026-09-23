@@ -9,22 +9,58 @@ const FIELD_CLASSES =
 const LABEL_CLASSES = "text-sm font-bold text-forest";
 
 export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const email = String(data.get("email") ?? "");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
       setError("Please enter a valid email address.");
       return;
     }
+    setStatus("sending");
     setError("");
-    setSent(true);
+
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email,
+      subject: String(data.get("subject") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const body = (await res.json().catch(() => ({}))) as {
+        ok?: boolean;
+        configured?: boolean;
+        error?: string;
+      };
+      if (res.ok && body.ok) {
+        setStatus("sent");
+      } else if (res.status === 501) {
+        setStatus("idle");
+        setError(
+          body.error ??
+            "Message receiving is not enabled yet. Please contact AAYWA directly."
+        );
+      } else {
+        setStatus("error");
+        setError(body.error ?? "The message could not be sent right now.");
+      }
+    } catch {
+      setStatus("error");
+      setError("There was a network problem sending your message.");
+    }
   }
 
-  if (sent) {
+  if (status === "sent") {
     return (
       <div className="flex flex-col items-start gap-4 rounded-[1.6rem] border border-leaf/25 bg-sage/60 p-8" role="status">
         <span className="grid h-12 w-12 place-items-center rounded-full bg-leaf text-cream">
@@ -33,9 +69,8 @@ export default function ContactForm() {
         <div>
           <h3 className="font-serif text-2xl tracking-tight text-forest">Message received.</h3>
           <p className="mt-2 text-sm leading-6 text-forest/70">
-            Thank you for reaching out. This form is a front-end placeholder —
-            it will be connected to AAYWA&apos;s official communication channel
-            before launch. Your message is not yet sent to anyone.
+            Thank you for reaching out. Your message has been sent to the AAYWA
+            team — we&apos;ll get back to you as soon as we can.
           </p>
         </div>
       </div>
@@ -105,9 +140,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex h-12 w-fit cursor-pointer items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-bold text-forest transition-all duration-300 hover:bg-[#e2bc66] hover:shadow-glow active:scale-95"
+        disabled={status === "sending"}
+        className="inline-flex h-12 w-fit cursor-pointer items-center gap-2 rounded-full bg-gold px-7 py-3 text-sm font-bold text-forest transition-all duration-300 hover:bg-[#e2bc66] hover:shadow-glow active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send message
+        {status === "sending" ? "Sending…" : "Send message"}
         <Send size={14} aria-hidden />
       </button>
     </form>
