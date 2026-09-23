@@ -116,13 +116,13 @@ export default function Footer() {
           </div>
           <div className="grid grid-cols-3 gap-2 self-end text-xs">
             {["Privacy Policy", "Safeguarding", "Terms"].map((label) => (
-              <a
+              <span
                 key={label}
-                href="#"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 px-3 py-2 text-center text-cream/60 transition-colors hover:border-gold/60 hover:text-gold"
+                title="Policy page to be published"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 px-3 py-2 text-center text-cream/60"
               >
                 {label}
-              </a>
+              </span>
             ))}
           </div>
         </div>

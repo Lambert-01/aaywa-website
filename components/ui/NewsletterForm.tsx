@@ -79,8 +79,8 @@ export default function NewsletterForm({ tone = "dark" }: NewsletterFormProps) {
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           placeholder="Enter your email"
-          aria-invalid={status === "error"}
-          aria-describedby={status === "error" ? "newsletter-error" : undefined}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? "newsletter-error" : undefined}
           className={`h-12 min-w-0 flex-1 rounded-full border px-5 text-sm outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gold ${
             light
               ? "border-white/20 bg-white/10 text-cream placeholder:text-white/50 focus:border-gold/60"
@@ -96,7 +96,7 @@ export default function NewsletterForm({ tone = "dark" }: NewsletterFormProps) {
           <Send size={14} aria-hidden />
         </button>
       </div>
-      {status === "error" && (
+      {error && (
         <p id="newsletter-error" className="mt-2 text-sm font-medium text-red-700" role="alert">
           {error}
         </p>
