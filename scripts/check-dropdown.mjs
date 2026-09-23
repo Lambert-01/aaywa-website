@@ -3,11 +3,12 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright-core");
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const BASE = process.env.BASE_URL ?? "http://localhost:3100";
 
 (async () => {
   const browser = await chromium.launch({ executablePath: CHROME, headless: true, args: ["--headless=new", "--no-sandbox", "--disable-gpu"] });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await page.goto("http://localhost:3000/", { waitUntil: "networkidle" });
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
 
   const ourWorkLink = page.getByRole("link", { name: /^Our Work/ }).first();
   await ourWorkLink.focus();
