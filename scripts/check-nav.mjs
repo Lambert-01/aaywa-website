@@ -3,6 +3,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright-core");
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const BASE = process.env.BASE_URL ?? "http://localhost:3000";
 
 (async () => {
   const browser = await chromium.launch({ executablePath: CHROME, headless: true, args: ["--headless=new", "--no-sandbox", "--disable-gpu"] });
@@ -10,7 +11,7 @@ const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
   // Mobile: menu open -> Escape closes
   const mob = await browser.newPage({ viewport: { width: 375, height: 700 } });
-  await mob.goto("http://localhost:3000/", { waitUntil: "networkidle" });
+  await mob.goto(BASE + "/", { waitUntil: "networkidle" });
   const menuBtn = mob.locator('button[aria-label="Open menu"], button[aria-label*="menu" i]').first();
   if (await menuBtn.count()) {
     await menuBtn.click();
@@ -31,7 +32,7 @@ const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
   // Desktop: dropdown navigable
   const desk = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await desk.goto("http://localhost:3000/", { waitUntil: "networkidle" });
+  await desk.goto(BASE + "/", { waitUntil: "networkidle" });
   const dd = desk.getByRole("button", { name: /our work/i }).first();
   if (await dd.count()) {
     await dd.hover();
@@ -52,7 +53,7 @@ const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
   // Focus-visible outline applies to interactive elements
   const foc = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-  await foc.goto("http://localhost:3000/", { waitUntil: "networkidle" });
+  await foc.goto(BASE + "/", { waitUntil: "networkidle" });
   await foc.getByRole("link", { name: "About" }).first().focus();
   const outline = await foc.evaluate(() => {
     const el = document.activeElement;

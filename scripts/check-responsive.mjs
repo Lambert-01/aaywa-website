@@ -3,7 +3,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright-core");
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const BASE = "http://localhost:3000";
+const BASE = process.env.BASE_URL ?? "http://localhost:3000";
 
 const routes = [
   "/", "/about", "/our-work", "/impact", "/stories", "/resources",
