@@ -21,6 +21,8 @@ export default function OurWorkPage() {
         eyebrow="Our Work"
         title="Six pillars. One purpose: women-led agribusiness that lasts."
         text="Every AAYWA programme is built around the full journey — from knowledge to production, from enterprise to markets, and from markets to leadership."
+        image="/images/impact-community.jpg"
+        imageAlt="Community members working together on shared goals"
         crumbs={[{ label: "Home", href: "/" }, { label: "Our Work" }]}
       />
 
@@ -82,7 +84,7 @@ export default function OurWorkPage() {
                 supported pathway from first step to leadership.
               </p>
             </div>
-            <CTAButton href="/our-work#journey" variant="forest" withArrow>
+            <CTAButton href="/#journey" variant="forest" withArrow>
               See the journey
             </CTAButton>
           </Reveal>

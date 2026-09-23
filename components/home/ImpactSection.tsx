@@ -1,9 +1,8 @@
 import { Globe2, LineChart, TreePalm, type LucideIcon } from "lucide-react";
-import { IMPACT_CATEGORIES, STATS } from "@/data/impact";
+import { IMPACT_CATEGORIES, MEASURES } from "@/data/impact";
 import QuoteBlock from "@/components/ui/QuoteBlock";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import StatCard from "@/components/ui/StatCard";
 
 const CATEGORY_ICONS: Record<string, LucideIcon> = {
   social: LineChart,
@@ -52,21 +51,22 @@ export default function ImpactSection() {
         </div>
 
         <Reveal className="mt-16">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-            {STATS.map((stat, index) => (
-              <StatCard
-                key={stat.id}
-                label={stat.label}
-                value={stat.value}
-                note={stat.note}
-                tone="light"
-                className={index > 2 ? "xl:col-span-1" : undefined}
-              />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {MEASURES.map((measure, index) => (
+              <Reveal key={measure.id} delay={(index % 3) * 0.06}>
+                <div className="h-full rounded-[1.4rem] border border-white/10 bg-white/5 p-6">
+                  <div className="font-serif text-xl text-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <h4 className="mt-3 font-bold leading-snug text-cream">{measure.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-cream/65">{measure.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
-          <p className="mt-4 text-xs text-cream/45">
-            Statistical figures are published only once independently verified and
-            approved for public release by AAYWA.
+          <p className="mt-6 text-sm text-cream/50">
+            This framework is what AAYWA is accountable for. Numbers are published
+            only from verified programme data — never estimated.
           </p>
         </Reveal>
 

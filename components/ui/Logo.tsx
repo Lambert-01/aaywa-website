@@ -16,10 +16,10 @@ export default function Logo({ className, href = "/" }: LogoProps) {
     >
       <span className="inline-flex h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white shadow-[0_2px_10px_rgba(23,61,43,0.14)]">
         <Image
-          src="/logo.png"
+          src="/logo-512.png"
           alt="AAYWA logo"
-          width={1254}
-          height={1254}
+          width={512}
+          height={512}
           className="h-full w-full object-contain"
           priority
         />

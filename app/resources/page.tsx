@@ -13,6 +13,7 @@ import { RESOURCE_CATEGORIES } from "@/data/resources";
 import PageHero from "@/components/ui/PageHero";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import NewsletterForm from "@/components/ui/NewsletterForm";
 import CtaBanner from "@/components/ui/CtaBanner";
 
@@ -39,6 +40,8 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Knowledge built for women building agribusinesses."
         text="Practical, honest and Africa-rooted resources — from training tools and business guides to research, reports and market insight."
+        image="/images/about-accent.jpg"
+        imageAlt="Learning within an agricultural setting"
         crumbs={[{ label: "Home", href: "/" }, { label: "Resources" }]}
       />
 
@@ -105,6 +108,46 @@ export default function ResourcesPage() {
                 </div>
               </div>
             </Reveal>
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-20 sm:pb-24">
+        <div className="container-aaywa">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Library index"
+              title="Organized around real questions."
+              text="Each section below is where its content will live — training tools, business guides and insight, reviewed and approved before anything goes public."
+            />
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {RESOURCE_CATEGORIES.map((category, index) => {
+              const Icon = CATEGORY_ICONS[category.id] ?? FileText;
+              return (
+                <Reveal key={category.id} delay={(index % 2) * 0.07}>
+                  <article
+                    id={category.id}
+                    className="scroll-mt-28 rounded-[1.6rem] border border-forest/10 bg-white p-7"
+                  >
+                    <div className="flex items-start gap-4">
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sage text-leaf">
+                        <Icon size={20} aria-hidden />
+                      </span>
+                      <div>
+                        <h3 className="font-serif text-xl tracking-tight text-forest">{category.title}</h3>
+                        <p className="mt-1 text-sm leading-6 text-forest/65">{category.description}</p>
+                      </div>
+                    </div>
+                    <div className="mt-6 rounded-xl border border-dashed border-forest/15 bg-cream/60 px-5 py-4 text-sm leading-6 text-forest/60">
+                      New content in this section is published here as soon as it
+                      is reviewed and approved.
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

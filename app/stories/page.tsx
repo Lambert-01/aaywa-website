@@ -1,70 +1,31 @@
 import type { Metadata } from "next";
-import { getPublishedStories, type Story } from "@/data/stories";
+import Link from "next/link";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import { getPublishedStories } from "@/data/stories";
 import PageHero from "@/components/ui/PageHero";
 import StoryCard from "@/components/ui/StoryCard";
+import PhotoFrame from "@/components/ui/PhotoFrame";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Stories of Change",
   description:
-    "Stories of young African women transforming their lives and communities through agribusiness — shared with their consent and verified by AAYWA.",
+    "Stories of young African women transforming their lives and communities through agribusiness — shared in their own words, with their consent and verified by AAYWA.",
 };
 
-const PLACEHOLDER_STORIES: Story[] = [
+const STORY_PROMISES = [
   {
-    slug: "ph-1",
-    status: "draft",
-    program: "Agribusiness Development",
-    headline: "From the field to the market",
-    excerpt:
-      "This space is prepared for a verified, consent-based story of a young woman's journey from subsistence farming to running her own agribusiness.",
-    image: "/images/stories-1.jpg",
+    title: "Her own voice",
+    text: "Each story is told from the woman's own perspective, in language she recognizes and approves.",
   },
   {
-    slug: "ph-2",
-    status: "draft",
-    program: "Leadership & Mentorship",
-    headline: "Leading beyond the farm gate",
-    excerpt:
-      "Prepared for a profile of a young woman growing into leadership — organizing peers, influencing decisions and creating opportunity.",
-    image: "/images/stories-2.jpg",
+    title: "Full consent",
+    text: "Nothing is shared without the woman's informed, revisable consent — and she reviews every word before publication.",
   },
   {
-    slug: "ph-3",
-    status: "draft",
-    program: "Sustainable Agriculture",
-    headline: "Farming with the land",
-    excerpt:
-      "Prepared for a story of regenerative farming — restoring soil, weathering seasons and building a resilient, climate-smart enterprise.",
-    image: "/images/stories-3.jpg",
-  },
-  {
-    slug: "ph-4",
-    status: "draft",
-    program: "Market Access",
-    headline: "Reaching real markets",
-    excerpt:
-      "Prepared for a story of a woman-led enterprise connecting to reliable buyers and growing through ethical value chains.",
-    image: "/images/journey-woman.jpg",
-  },
-  {
-    slug: "ph-5",
-    status: "draft",
-    program: "Finance & Investment Readiness",
-    headline: "Ready for investment",
-    excerpt:
-      "Prepared for a story of a young woman preparing her enterprise to attract finance and grow with confidence.",
-    image: "/images/about-accent.jpg",
-  },
-  {
-    slug: "ph-6",
-    status: "draft",
-    program: "Innovation & Digital Agriculture",
-    headline: "Farming with technology",
-    excerpt:
-      "Prepared for a story of a young woman innovator pairing indigenous knowledge with digital tools.",
-    image: "/images/work-innovation.jpg",
+    title: "Verified facts",
+    text: "Names, programmes and outcomes are confirmed with the woman and with AAYWA programme records.",
   },
 ];
 
@@ -75,8 +36,10 @@ export default function StoriesPage() {
     <>
       <PageHero
         eyebrow="Stories of change"
-        title="Journeys that change everything."
-        text="The heart of AAYWA is human. Here we share the journeys of young African women building enterprises, leadership and lasting change."
+        title="The women behind the movement."
+        text="The heart of AAYWA is human. Here we will share the journeys of young African women building enterprises, leadership and lasting change — in their own words and with their full consent."
+        image="/images/stories-1.jpg"
+        imageAlt="A young African woman in an agricultural setting"
         crumbs={[{ label: "Home", href: "/" }, { label: "Stories" }]}
       />
 
@@ -89,27 +52,67 @@ export default function StoriesPage() {
               ))}
             </div>
           ) : (
-            <>
-              <div className="grid items-stretch gap-6 lg:grid-cols-3">
-                {PLACEHOLDER_STORIES.map((story, index) => (
-                  <Reveal key={story.slug} delay={(index % 3) * 0.07}>
-                    <StoryCard story={story} />
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal className="mt-10">
-                <div className="rounded-[1.6rem] border border-dashed border-forest/20 bg-white/70 p-8 text-center">
-                  <h2 className="font-serif text-2xl tracking-tight text-forest">
-                    Stories are on their way.
-                  </h2>
-                  <p className="mx-auto mt-3 max-w-xl text-pretty text-sm leading-6 text-forest/65">
-                    AAYWA shares the stories of young women agripreneurs with care.
-                    Each story is collected directly, verified, and published only
-                    with the woman&apos;s full consent and review.
+            <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
+              <Reveal>
+                <PhotoFrame
+                  src="/images/journey-woman.jpg"
+                  alt="A young African woman at the heart of AAYWA's work"
+                  aspect="portrait"
+                  sizes="(min-width: 1024px) 44vw, 100vw"
+                  rounded="rounded-[1.8rem] sm:rounded-[2.2rem]"
+                  className="w-full shadow-soft"
+                  overlay={
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16">
+                      <p className="text-sm font-medium text-cream">
+                        Their stories come first — patient, truthful and personal.
+                      </p>
+                    </div>
+                  }
+                />
+              </Reveal>
+
+              <Reveal delay={0.1}>
+                <p className="font-serif text-balance text-[clamp(1.6rem,3vw,2.3rem)] leading-[1.2] tracking-tight text-forest">
+                  We won&apos;t invent heroes for a beautiful website. The women
+                  AAYWA walks alongside will speak for themselves.
+                </p>
+                <p className="mt-5 leading-8 text-forest/70">
+                  Real stories take time. They are collected directly, checked with
+                  the woman and her programme, and published only once she has
+                  reviewed every word. First validated stories are on their way and
+                  will appear on this page.
+                </p>
+
+                <ul className="mt-10 space-y-5">
+                  {STORY_PROMISES.map((item) => (
+                    <li key={item.title} className="flex items-start gap-4">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sage text-leaf">
+                        <ShieldCheck size={17} aria-hidden />
+                      </span>
+                      <div>
+                        <h3 className="font-bold text-forest">{item.title}</h3>
+                        <p className="mt-0.5 text-sm leading-6 text-forest/65">{item.text}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-10 rounded-[1.4rem] border border-dashed border-forest/20 bg-white p-6">
+                  <p className="text-sm leading-6 text-forest/70">
+                    <span className="font-bold text-forest">Stories are on their way.</span>{" "}
+                    If you are a young woman agripreneur whose journey has been
+                    shaped by AAYWA, we would be honoured to tell it on your terms.
                   </p>
+                  <Link
+                    href="/contact"
+                    className="group mt-4 inline-flex items-center gap-2 text-sm font-bold text-leaf transition-colors hover:text-forest"
+                  >
+                    Share your story
+                    <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" aria-hidden />
+                  </Link>
                 </div>
               </Reveal>
-            </>
+            </div>
           )}
         </div>
       </section>

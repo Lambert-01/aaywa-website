@@ -5,7 +5,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function JourneySection() {
   return (
-    <section className="relative overflow-hidden bg-paper py-24 sm:py-28">
+    <section id="journey" className="relative scroll-mt-24 overflow-hidden bg-paper py-24 sm:py-28">
       <div className="container-aaywa">
         <Reveal className="mx-auto max-w-3xl text-center">
           <SectionHeading

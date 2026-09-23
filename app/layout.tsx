@@ -48,18 +48,18 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: [
       {
-        url: "/logo.png",
-        width: 1254,
-        height: 1254,
-        alt: "AAYWA logo",
+        url: `${SITE.url}/og-aaywa.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "AAYWA — empowering young African women through agribusiness",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "AAYWA | Empowering Young African Women Through Agribusiness",
     description: SITE.description,
-    images: ["/logo.png"],
+    images: [`${SITE.url}/og-aaywa.jpg`],
   },
   robots: {
     index: true,

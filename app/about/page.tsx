@@ -20,6 +20,9 @@ export default function AboutPage() {
         eyebrow="About AAYWA"
         title="An African organization growing women leaders through agribusiness."
         text="We believe young African women are not simply part of agriculture — they can shape its future."
+        variant="cream"
+        image="/images/work-markets.jpg"
+        imageAlt="Produce from a women-led agribusiness ready for market"
         crumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
       />
 

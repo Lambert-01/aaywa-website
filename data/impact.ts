@@ -22,6 +22,45 @@ export const IMPACT_CATEGORIES: ImpactCategory[] = [
   },
 ];
 
+export type Measure = {
+  id: string;
+  title: string;
+  text: string;
+};
+
+export const MEASURES: Measure[] = [
+  {
+    id: "reach",
+    title: "Young women reached",
+    text: "Women from rural and urban communities reached through programmes and networks.",
+  },
+  {
+    id: "skills",
+    title: "Trained & skilled",
+    text: "Women completing training in agribusiness, leadership and climate-smart practice.",
+  },
+  {
+    id: "enterprises",
+    title: "Enterprises growing",
+    text: "Women-led agribusinesses strengthened, formalized and expanding.",
+  },
+  {
+    id: "livelihoods",
+    title: "Income & jobs",
+    text: "Jobs and income opportunities created around women-led enterprises.",
+  },
+  {
+    id: "leadership",
+    title: "Women leading",
+    text: "Women stepping into decision-making roles in groups, markets and communities.",
+  },
+  {
+    id: "partnerships",
+    title: "Partners & networks",
+    text: "Organizations, funders and local networks working alongside AAYWA.",
+  },
+];
+
 export type Stat = {
   id: string;
   label: string;

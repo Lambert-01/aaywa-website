@@ -27,7 +27,7 @@ export default function WhoWeServeSection() {
           <div className="absolute -bottom-6 -left-4 hidden rounded-2xl bg-white px-6 py-5 shadow-soft sm:block">
             <div className="font-serif text-3xl text-forest">6</div>
             <div className="mt-1 max-w-[9rem] text-xs leading-4 text-forest/60">
-              communities of young women we walk alongside
+              groups at the heart of our work
             </div>
           </div>
         </Reveal>

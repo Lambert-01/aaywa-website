@@ -4,11 +4,11 @@ import ChallengeSection from "@/components/home/ChallengeSection";
 import PillarsSection from "@/components/home/PillarsSection";
 import JourneySection from "@/components/home/JourneySection";
 import ImpactSection from "@/components/home/ImpactSection";
-import StoriesSection from "@/components/home/StoriesSection";
-import ValuesSection from "@/components/home/ValuesSection";
 import WhoWeServeSection from "@/components/home/WhoWeServeSection";
 import GetInvolvedSection from "@/components/home/GetInvolvedSection";
+import StoriesSection from "@/components/home/StoriesSection";
 import ResourcesPreview from "@/components/home/ResourcesPreview";
+import CtaBanner from "@/components/ui/CtaBanner";
 
 export default function Home() {
   return (
@@ -19,11 +19,20 @@ export default function Home() {
       <PillarsSection />
       <JourneySection />
       <ImpactSection />
-      <StoriesSection />
-      <ValuesSection />
       <WhoWeServeSection />
       <GetInvolvedSection />
+      <StoriesSection />
       <ResourcesPreview />
+      <div className="pt-10">
+        <CtaBanner
+          title="Grow with AAYWA."
+          text="Whether you are a young woman farmer ready to begin the journey, or a partner who believes women-led agriculture can transform Africa — start the conversation today."
+          primaryLabel="Get involved"
+          primaryHref="/get-involved"
+          secondaryLabel="Contact us"
+          secondaryHref="/contact"
+        />
+      </div>
     </>
   );
 }

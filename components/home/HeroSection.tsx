@@ -90,15 +90,15 @@ export default function HeroSection() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
           className="relative mx-auto w-full max-w-md lg:max-w-none"
         >
-          <div className="relative pb-10 pl-10 sm:pl-14">
+          <div className="relative">
             <PhotoFrame
               src="/images/hero-primary.jpg"
               alt="Young African woman farmer leading in the field"
               aspect="portrait"
               priority
               sizes="(min-width: 1024px) 42vw, 90vw"
-              rounded="rounded-[2rem]"
-              className="w-full shadow-lifted sm:rounded-[2.4rem]"
+              rounded="rounded-[2rem] sm:rounded-[2.4rem]"
+              className="w-full shadow-lifted"
               overlay={
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-forest/60 via-forest/10 to-transparent px-6 pb-5 pt-16">
                   <p className="text-sm font-semibold text-cream">
@@ -107,22 +107,6 @@ export default function HeroSection() {
                 </div>
               }
             />
-
-            <motion.div
-              initial={reduced ? false : { opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -left-2 -bottom-2 w-[62%] sm:left-2"
-            >
-              <PhotoFrame
-                src="/images/hero-secondary.jpg"
-                alt="Agribusiness training session with young women"
-                aspect="landscape"
-                sizes="(min-width: 1024px) 24vw, 55vw"
-                rounded="rounded-[1.4rem] ring-4 ring-forest sm:rounded-[1.8rem]"
-                className="shadow-lifted"
-              />
-            </motion.div>
 
             <motion.div
               initial={reduced ? false : { opacity: 0, x: 20 }}

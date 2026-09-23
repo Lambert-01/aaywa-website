@@ -34,10 +34,10 @@ export default function Footer() {
             <Link href="/" aria-label="AAYWA home" className="inline-flex items-center gap-3">
               <span className="inline-flex h-12 w-12 shrink-0 overflow-hidden rounded-full bg-white">
                 <Image
-                  src="/logo.png"
+                  src="/logo-512.png"
                   alt="AAYWA logo"
-                  width={1254}
-                  height={1254}
+                  width={512}
+                  height={512}
                   className="h-full w-full object-contain"
                 />
               </span>

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Globe2, LineChart, TreePalm, type LucideIcon } from "lucide-react";
-import { IMPACT_CATEGORIES, STATS } from "@/data/impact";
+import { IMPACT_CATEGORIES, MEASURES } from "@/data/impact";
 import PageHero from "@/components/ui/PageHero";
-import StatCard from "@/components/ui/StatCard";
 import QuoteBlock from "@/components/ui/QuoteBlock";
 import PhotoFrame from "@/components/ui/PhotoFrame";
 import Reveal from "@/components/ui/Reveal";
@@ -28,6 +27,8 @@ export default function ImpactPage() {
         eyebrow="Our impact"
         title="Transformation you can follow, not just count."
         text="We measure the change created around women-led agribusiness — social, economic and environmental."
+        image="/images/journey-woman.jpg"
+        imageAlt="A young African woman at the heart of AAYWA's work"
         crumbs={[{ label: "Home", href: "/" }, { label: "Impact" }]}
       />
 
@@ -54,34 +55,36 @@ export default function ImpactPage() {
 
       <section className="bg-forest py-20 text-cream sm:py-24">
         <div className="container-aaywa">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:gap-20">
-            <Reveal>
-              <h2 className="eyebrow text-[0.72rem] font-bold uppercase tracking-[0.24em] text-gold">
-                Our indicators
-              </h2>
-              <p className="mt-4 font-serif text-balance text-[clamp(1.8rem,3.4vw,2.7rem)] leading-[1.12] tracking-tight">
-                The statistics AAYWA will report.
-              </p>
-              <p className="mt-5 leading-7 text-cream/70">
-                Metrics are prepared and updated as programmes operate, data is
-                verified and results are approved for public release. Figures are
-                never estimated.
-              </p>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-                {STATS.map((stat) => (
-                  <StatCard
-                    key={stat.id}
-                    label={stat.label}
-                    value={stat.value}
-                    note={stat.note}
-                    tone="light"
-                  />
-                ))}
-              </div>
-            </Reveal>
-          </div>
+          <Reveal>
+            <h2 className="eyebrow text-[0.72rem] font-bold uppercase tracking-[0.24em] text-gold">
+              What we measure
+            </h2>
+            <p className="mt-4 max-w-2xl font-serif text-balance text-[clamp(1.8rem,3.4vw,2.7rem)] leading-[1.12] tracking-tight">
+              The dimensions that hold AAYWA accountable.
+            </p>
+            <p className="mt-5 max-w-2xl leading-7 text-cream/70">
+              These are the areas where change must be visible. Results are
+              prepared and updated as programmes operate, data is verified and
+              figures are approved for public release. Numbers are never
+              estimated.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08} className="mt-12">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {MEASURES.map((measure, index) => (
+                <div
+                  key={measure.id}
+                  className="h-full rounded-[1.4rem] border border-white/10 bg-white/5 p-6"
+                >
+                  <div className="font-serif text-xl text-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="mt-3 font-bold leading-snug text-cream">{measure.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-cream/65">{measure.text}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
         </div>
       </section>
 
