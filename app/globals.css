@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background-color: #faf8f2;
+  color: #17241c;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #d7a94b;
+  color: #163d2b;
+}
+
+:focus-visible {
+  outline: 2px solid #d7a94b;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .container-aaywa {
+    width: min(1200px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  @media (min-width: 640px) {
+    .container-aaywa {
+      width: min(1200px, calc(100% - 4rem));
+    }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 2rem;
+    height: 2px;
+    background-color: #d7a94b;
+    flex-shrink: 0;
+  }
+
+  .grain-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='0.05'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .soft-grid {
+    background-image:
+      linear-gradient(rgba(23, 61, 43, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 61, 43, 0.045) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+
+  .hairline-grid {
+    background-image:
+      linear-gradient(rgba(23, 61, 43, 0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(23, 61, 43, 0.07) 1px, transparent 1px);
+    background-size: 100% 1px, 1px 100%;
+  }
+
+  .prose-aaywa p {
+    margin-top: 1rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
