@@ -93,14 +93,26 @@ export default function ImpactPage() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <PhotoFrame
-              src="/images/impact-field.svg"
-              alt="Thriving farmland managed through sustainable agriculture"
-              aspect="landscape"
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              rounded="rounded-[1.8rem]"
-              className="shadow-soft"
-            />
+            <div className="relative">
+              <PhotoFrame
+                src="/images/impact-field.jpg"
+                alt="Thriving farmland managed through sustainable agriculture"
+                aspect="landscape"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                rounded="rounded-[1.8rem]"
+                className="w-full shadow-soft"
+              />
+              <div className="absolute -bottom-8 -left-2 w-[45%] sm:-left-6 sm:w-[38%]">
+                <PhotoFrame
+                  src="/images/impact-community.jpg"
+                  alt="Community members working together on shared goals"
+                  aspect="square"
+                  sizes="(min-width: 1024px) 16vw, 38vw"
+                  rounded="rounded-[1.4rem] ring-[6px] ring-paper sm:rounded-[1.6rem]"
+                  className="shadow-lifted"
+                />
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

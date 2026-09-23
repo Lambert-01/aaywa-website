@@ -10,7 +10,7 @@ export default function WhoWeServeSection() {
       <div className="container-aaywa grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal className="relative">
           <PhotoFrame
-            src="/images/who-we-serve.svg"
+            src="/images/who-we-serve.jpg"
             alt="Young women farmers working together in community"
             aspect="portrait"
             sizes="(min-width: 1024px) 40vw, 90vw"

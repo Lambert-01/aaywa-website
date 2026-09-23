@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Sprout } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 
@@ -22,12 +23,20 @@ export default function CtaBanner({
     <section className="pb-24 sm:pb-28">
       <div className="container-aaywa">
         <div className="relative overflow-hidden rounded-[2rem] bg-forest px-7 py-14 text-cream sm:px-14 sm:py-16">
+          <Image
+            src="/images/cta-background.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 90vw, 100vw"
+            className="object-cover"
+            aria-hidden
+          />
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 bg-forest/80"
             aria-hidden
             style={{
               background:
-                "radial-gradient(circle at 85% 15%, rgba(215,169,75,0.22), transparent 42%), radial-gradient(circle at 10% 100%, rgba(47,107,73,0.4), transparent 45%)",
+                "linear-gradient(120deg, rgba(22,61,43,0.9) 0%, rgba(22,61,43,0.72) 55%, rgba(47,107,73,0.72) 100%)",
             }}
           />
           <div className="grain-layer" aria-hidden />

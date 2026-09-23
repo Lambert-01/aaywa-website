@@ -47,7 +47,7 @@ export default function ResourcesPage() {
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
               <PhotoFrame
-                src="/images/resources-feature.svg"
+                src="/images/resources-feature.jpg"
                 alt="Learning materials and documentation for agribusiness"
                 aspect="wide"
                 sizes="(min-width: 1024px) 48vw, 100vw"

@@ -19,7 +19,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "From the field to the market",
     excerpt:
       "This space is prepared for a verified, consent-based story of a young woman's journey from subsistence farming to running her own agribusiness.",
-    image: "/images/stories-1.svg",
+    image: "/images/stories-1.jpg",
   },
   {
     slug: "ph-2",
@@ -28,7 +28,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Leading beyond the farm gate",
     excerpt:
       "Prepared for a profile of a young woman growing into leadership — organizing peers, influencing decisions and creating opportunity.",
-    image: "/images/stories-2.svg",
+    image: "/images/stories-2.jpg",
   },
   {
     slug: "ph-3",
@@ -37,7 +37,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Farming with the land",
     excerpt:
       "Prepared for a story of regenerative farming — restoring soil, weathering seasons and building a resilient, climate-smart enterprise.",
-    image: "/images/stories-3.svg",
+    image: "/images/stories-3.jpg",
   },
   {
     slug: "ph-4",
@@ -46,7 +46,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Reaching real markets",
     excerpt:
       "Prepared for a story of a woman-led enterprise connecting to reliable buyers and growing through ethical value chains.",
-    image: "/images/journey-woman.svg",
+    image: "/images/journey-woman.jpg",
   },
   {
     slug: "ph-5",
@@ -55,7 +55,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Ready for investment",
     excerpt:
       "Prepared for a story of a young woman preparing her enterprise to attract finance and grow with confidence.",
-    image: "/images/about-accent.svg",
+    image: "/images/about-accent.jpg",
   },
   {
     slug: "ph-6",
@@ -64,7 +64,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Farming with technology",
     excerpt:
       "Prepared for a story of a young woman innovator pairing indigenous knowledge with digital tools.",
-    image: "/images/work-innovation.svg",
+    image: "/images/work-innovation.jpg",
   },
 ];
 

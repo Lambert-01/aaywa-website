@@ -31,7 +31,7 @@ export const PILLARS: Pillar[] = [
     impact: "Profitable enterprises led and owned by young women",
     icon: BriefcaseBusiness,
     color: "gold",
-    image: "/images/work-agribusiness.svg",
+    image: "/images/work-agribusiness.jpg",
   },
   {
     id: "sustainable-agriculture",
@@ -43,7 +43,7 @@ export const PILLARS: Pillar[] = [
     impact: "Climate-resilient farms and healthier landscapes",
     icon: Leaf,
     color: "leaf",
-    image: "/images/work-sustainable.svg",
+    image: "/images/work-sustainable.jpg",
   },
   {
     id: "market-access",
@@ -55,7 +55,7 @@ export const PILLARS: Pillar[] = [
     impact: "Reliable, fair and growing market connections",
     icon: Globe2,
     color: "forest",
-    image: "/images/work-markets.svg",
+    image: "/images/work-markets.jpg",
   },
   {
     id: "finance-readiness",
@@ -67,7 +67,7 @@ export const PILLARS: Pillar[] = [
     impact: "Enterprises ready for finance and investment",
     icon: BadgeDollarSign,
     color: "earth",
-    image: "/images/work-finance.svg",
+    image: "/images/work-finance.jpg",
   },
   {
     id: "leadership-mentorship",
@@ -79,7 +79,7 @@ export const PILLARS: Pillar[] = [
     impact: "A new generation of women leaders in agriculture",
     icon: Users,
     color: "gold",
-    image: "/images/work-leadership.svg",
+    image: "/images/work-leadership.jpg",
   },
   {
     id: "innovation",
@@ -91,7 +91,7 @@ export const PILLARS: Pillar[] = [
     impact: "Smarter, tech-enabled agribusinesses",
     icon: Sprout,
     color: "leaf",
-    image: "/images/work-innovation.svg",
+    image: "/images/work-innovation.jpg",
   },
 ];
 

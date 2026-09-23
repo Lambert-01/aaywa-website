@@ -14,7 +14,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "From the field to the market",
     excerpt:
       "This space will feature a verified, consent-based story of a young African woman's journey from subsistence farming to running her own agribusiness.",
-    image: "/images/stories-1.svg",
+    image: "/images/stories-1.jpg",
   },
   {
     slug: "placeholder-2",
@@ -23,7 +23,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Leading beyond the farm gate",
     excerpt:
       "A profile of a young woman growing into a leader — organizing peers, influencing decisions and creating opportunity in her community.",
-    image: "/images/stories-2.svg",
+    image: "/images/stories-2.jpg",
   },
   {
     slug: "placeholder-3",
@@ -32,7 +32,7 @@ const PLACEHOLDER_STORIES: Story[] = [
     headline: "Farming with the land",
     excerpt:
       "A story of regenerative farming: restoring soil, weathering uncertain seasons and building a resilient, climate-smart enterprise.",
-    image: "/images/stories-3.svg",
+    image: "/images/stories-3.jpg",
   },
 ];
 

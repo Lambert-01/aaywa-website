@@ -92,7 +92,7 @@ export default function HeroSection() {
         >
           <div className="relative pb-10 pl-10 sm:pl-14">
             <PhotoFrame
-              src="/images/hero-primary.svg"
+              src="/images/hero-primary.jpg"
               alt="Young African woman farmer leading in the field"
               aspect="portrait"
               priority
@@ -115,8 +115,8 @@ export default function HeroSection() {
               className="absolute -left-2 -bottom-2 w-[62%] sm:left-2"
             >
               <PhotoFrame
-                src="/images/hero-secondary.svg"
-                alt="AAYWA agribusiness training session"
+                src="/images/hero-secondary.jpg"
+                alt="Agribusiness training session with young women"
                 aspect="landscape"
                 sizes="(min-width: 1024px) 24vw, 55vw"
                 rounded="rounded-[1.4rem] ring-4 ring-forest sm:rounded-[1.8rem]"

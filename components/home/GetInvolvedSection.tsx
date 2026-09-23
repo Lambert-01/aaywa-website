@@ -20,7 +20,7 @@ export default function GetInvolvedSection() {
 
           <Reveal delay={0.1} className="mt-10 hidden lg:block">
             <PhotoFrame
-              src="/images/get-involved.svg"
+              src="/images/get-involved.jpg"
               alt="Hands joined in partnership around agriculture"
               aspect="landscape"
               sizes="(min-width: 1024px) 34vw, 80vw"

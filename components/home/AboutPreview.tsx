@@ -13,7 +13,7 @@ export default function AboutPreview() {
           <div className="relative">
             <div className="relative z-10">
               <PhotoFrame
-                src="/images/about-main.svg"
+                src="/images/about-main.jpg"
                 alt="Woman agripreneur with fresh produce"
                 aspect="portrait"
                 sizes="(min-width: 1024px) 40vw, 90vw"
@@ -24,7 +24,7 @@ export default function AboutPreview() {
 
             <div className="absolute -bottom-8 -right-2 z-20 w-[52%] sm:-right-6 sm:w-[46%]">
               <PhotoFrame
-                src="/images/about-accent.svg"
+                src="/images/about-accent.jpg"
                 alt="Women working inside a greenhouse"
                 aspect="landscape"
                 sizes="(min-width: 1024px) 20vw, 45vw"
