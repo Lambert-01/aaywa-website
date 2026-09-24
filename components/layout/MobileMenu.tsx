@@ -215,8 +215,8 @@ function MobileNavItem({
         >
           {label}
           {active && (
-            <span className="mb-1 mr-1 flex items-center gap-2">
-              <span className="hidden text-[10px] font-bold uppercase tracking-[0.16em] text-gold sm:inline">
+            <span className="flex items-center gap-2">
+              <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-gold">
                 You are here
               </span>
               <span className="h-2 w-2 rounded-full bg-gold" aria-hidden />
