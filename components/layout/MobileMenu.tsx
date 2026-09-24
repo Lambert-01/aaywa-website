@@ -27,18 +27,44 @@ type MobileMenuProps = {
 export default function MobileMenu({ open, onClose }: MobileMenuProps) {
   const pathname = usePathname();
   const closeRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (open) {
+      const previouslyFocused = document.activeElement as HTMLElement | null;
       document.body.style.overflow = "hidden";
       closeRef.current?.focus();
+
       const onKey = (event: KeyboardEvent) => {
-        if (event.key === "Escape") onClose();
+        if (event.key === "Escape") {
+          onClose();
+          return;
+        }
+        if (event.key === "Tab" && dialogRef.current) {
+          const focusables = dialogRef.current.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusables.length === 0) return;
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+          const active = document.activeElement;
+          if (!active) {
+            first.focus();
+            event.preventDefault();
+          } else if (event.shiftKey && active === first) {
+            last.focus();
+            event.preventDefault();
+          } else if (!event.shiftKey && active === last) {
+            first.focus();
+            event.preventDefault();
+          }
+        }
       };
       window.addEventListener("keydown", onKey);
       return () => {
         document.body.style.overflow = "";
         window.removeEventListener("keydown", onKey);
+        previouslyFocused?.focus();
       };
     }
   }, [open, onClose]);
@@ -51,6 +77,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {open && (
         <motion.div
+          ref={dialogRef}
           className="fixed inset-0 z-[60] flex flex-col overflow-hidden xl:hidden"
           role="dialog"
           aria-modal="true"
@@ -107,7 +134,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                         active ? "text-gold" : "text-cream/85 hover:text-cream"
                       )}
                     >
-                      <span className="font-mono text-xs text-gold/70">
+                      <span aria-hidden className="font-mono text-xs text-gold/70">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="flex-1 font-serif text-[1.5rem] leading-none tracking-tight">

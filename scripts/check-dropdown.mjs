@@ -53,7 +53,7 @@ const ABSENT = ["Stories", "Resources", "Get Involved", "Partner With Us", "Join
   await mob.getByRole("button", { name: "Open menu" }).click();
   await mob.waitForTimeout(700);
   const dialog = mob.locator('[role="dialog"]');
-  const mobLabels = (await dialog.locator('nav[aria-label="Mobile"] a').allTextContents()).map((t) => t.trim());
+  const mobLabels = (await dialog.locator('nav[aria-label="Mobile"] a').allTextContents()).map((t) => t.trim().replace(/^\d+/, ""));
   results.push(`mobile menu items: [${mobLabels.join(", ")}]`);
   results.push(`mobile exactly 5: ${mobLabels.length === 5 && mobLabels.every((l, i) => l === EXPECTED[i])}`);
   results.push(`mobile contains forbidden: ${(await dialog.innerText()).match(/Get Involved|Partner With Us|Join AAYWA/) ? "YES" : "no"}`);
