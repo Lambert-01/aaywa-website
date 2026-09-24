@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/ui/PageHero";
 import AboutPreview from "@/components/home/AboutPreview";
 import ValuesSection from "@/components/home/ValuesSection";
+import TeamSection from "@/components/home/TeamSection";
 import WhoWeServeSection from "@/components/home/WhoWeServeSection";
 import CtaBanner from "@/components/ui/CtaBanner";
 import Reveal from "@/components/ui/Reveal";
@@ -63,6 +64,8 @@ export default function AboutPage() {
       <AboutPreview />
 
       <ValuesSection />
+
+      <TeamSection />
 
       <div id="who-we-serve">
         <WhoWeServeSection />

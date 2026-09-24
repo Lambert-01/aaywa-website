@@ -63,6 +63,7 @@ export const FOOTER_NAV = {
   quickLinks: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/about" },
+    { label: "Leadership", href: "/about#leadership" },
     { label: "Our Work", href: "/our-work" },
     { label: "Impact", href: "/impact" },
     { label: "Stories", href: "/stories" },
