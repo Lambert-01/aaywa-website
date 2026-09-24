@@ -1,18 +1,17 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { Leaf } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import PhotoFrame from "@/components/ui/PhotoFrame";
-import { Sprig } from "@/components/ui/Botanical";
 
 const container = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 26 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
@@ -22,111 +21,120 @@ const item = {
 
 export default function HeroSection() {
   const reduced = useReducedMotion();
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
-    <section className="relative overflow-hidden text-cream">
+    <section className="relative isolate flex min-h-[620px] items-center overflow-hidden bg-[#0F311F] text-cream sm:min-h-[680px] lg:min-h-[720px]">
       <div
+        className="absolute inset-0"
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_16%_18%,rgba(215,169,75,0.20),transparent_34%),radial-gradient(circle_at_82%_28%,rgba(47,107,73,0.35),transparent_42%),radial-gradient(circle_at_50%_100%,rgba(22,61,43,0.6),transparent_55%),linear-gradient(140deg,#163D2B,#1E5238_58%,#163D2B)]"
+        style={{
+          background:
+            "radial-gradient(circle at 18% 22%, rgba(215,169,75,0.16), transparent 38%), linear-gradient(180deg, rgba(10,40,26,0.35) 0%, rgba(14,47,31,0.18) 46%, rgba(9,34,22,0.62) 100%)",
+        }}
       />
       <div className="grain-layer" aria-hidden />
-      <Sprig className="pointer-events-none absolute right-2 top-24 hidden h-72 w-72 rotate-12 text-cream/10 md:block" />
-      <Sprig className="pointer-events-none absolute bottom-16 left-4 hidden h-44 w-44 -rotate-45 text-gold/15 xl:block" />
-      <div className="pointer-events-none absolute -bottom-32 -right-28 h-96 w-96 animate-spin-slow rounded-full border border-cream/10 [mask-image:linear-gradient(transparent,black)]" aria-hidden />
-      <div className="pointer-events-none absolute -top-24 right-1/3 hidden h-64 w-64 animate-[spin-slow_38s_linear_infinite] rounded-full border border-gold/15 [mask-image:linear-gradient(transparent,black)] lg:block" aria-hidden />
 
-      <div className="container-aaywa relative grid items-center gap-14 pb-20 pt-32 sm:pt-36 lg:grid-cols-[1.04fr_0.96fr] lg:gap-10 lg:pb-28 lg:pt-40">
-        <motion.div
-          initial={reduced ? false : "hidden"}
-          animate="visible"
-          variants={container}
+      <MoodHills className={imgFailed ? "block" : "hidden"} />
+
+      {!imgFailed && (
+        <Image
+          src="/images/aaywa-hills.jpg"
+          alt="Rolling green hills of Rwanda under an expansive sky"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+          style={{ backgroundPosition: "center" }}
+          onError={() => setImgFailed(true)}
+        />
+      )}
+
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(8,35,23,0.90) 0%, rgba(12,49,32,0.78) 42%, rgba(12,49,32,0.40) 72%, rgba(8,35,23,0.55) 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0E2C1D] to-transparent"
+      />
+
+      <motion.div
+        initial={reduced ? false : "hidden"}
+        animate="visible"
+        variants={container}
+        className="container-aaywa relative z-10 pb-16 pt-32 sm:pt-36 lg:pb-24 lg:pt-44"
+      >
+        <motion.p
+          variants={item}
+          className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.24em] text-cream/85"
         >
-          <motion.div
-            variants={item}
-            className="inline-flex items-center gap-2.5 rounded-full border border-cream/20 bg-cream/8 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.2em] text-cream/80 backdrop-blur-sm"
-          >
-            <Leaf size={13} className="text-gold" aria-hidden />
-            Women · Agriculture · Opportunity
-          </motion.div>
+          <span className="h-px w-10 bg-gold/80" aria-hidden />
+          AAYWA · Women · Agriculture · Leadership
+        </motion.p>
 
-          <motion.h1
-            variants={item}
-            className="mt-7 font-serif text-balance text-[clamp(2.7rem,7vw,5.2rem)] leading-[1.02] tracking-tight"
-          >
-            Growing women.
-            <br />
-            Growing agribusiness.
-            <br />
-            <em className="italic text-gold">Transforming communities.</em>
-          </motion.h1>
+        <motion.h1
+          variants={item}
+          className="mt-7 max-w-4xl font-serif text-balance text-[clamp(2.8rem,7vw,5.4rem)] leading-[1.02] tracking-tight"
+        >
+          Growing women.
+          <br />
+          Growing agribusiness.
+          <br />
+          <em className="text-gold">Transforming communities.</em>
+        </motion.h1>
 
-          <motion.p variants={item} className="mt-7 max-w-xl text-pretty text-lg leading-8 text-cream/75">
-            AAYWA empowers young African women to build profitable, sustainable and
-            resilient agribusinesses through knowledge, innovation, leadership and
-            access to opportunity.
-          </motion.p>
+        <motion.p
+          variants={item}
+          className="mt-8 max-w-2xl text-pretty text-lg leading-8 text-cream/80"
+        >
+          AAYWA empowers young African women to build profitable, sustainable and
+          resilient agribusinesses through knowledge, innovation, leadership and
+          access to opportunity.
+        </motion.p>
 
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center gap-4">
-            <CTAButton href="/our-work" variant="primary" size="lg">
-              Explore Our Work
-            </CTAButton>
-            <CTAButton href="/get-involved" variant="outline-light" size="lg">
-              Join AAYWA
-            </CTAButton>
-          </motion.div>
-
-          <motion.p
-            variants={item}
-            className="mt-10 flex items-center gap-3 text-sm font-medium text-cream/55"
-          >
-            <span className="h-px w-12 bg-gold/60" aria-hidden />
-            From subsistence farming to sustainable agribusiness.
-          </motion.p>
+        <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+          <CTAButton href="/our-work" variant="primary" size="lg" withArrow>
+            Explore Our Work
+          </CTAButton>
+          <CTAButton href="/about" variant="outline-light" size="lg">
+            About AAYWA
+          </CTAButton>
         </motion.div>
 
-        <motion.div
-          initial={reduced ? false : { opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.35 }}
-          className="relative mx-auto w-full max-w-md lg:max-w-none"
+        <motion.p
+          variants={item}
+          className="mt-12 flex items-center gap-3 text-sm font-medium text-cream/55"
         >
-          <div className="relative">
-            <PhotoFrame
-              src="/images/hero-primary.jpg"
-              alt="Young African woman farmer leading in the field"
-              aspect="portrait"
-              priority
-              sizes="(min-width: 1024px) 42vw, 90vw"
-              rounded="rounded-[2rem] sm:rounded-[2.4rem]"
-              className="w-full shadow-lifted"
-              overlay={
-                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-forest/60 via-forest/10 to-transparent px-6 pb-5 pt-16">
-                  <p className="text-sm font-semibold text-cream">
-                    Young women leading African agriculture
-                  </p>
-                </div>
-              }
-            />
-
-            <motion.div
-              initial={reduced ? false : { opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="absolute -right-2 -top-4 sm:right-0"
-            >
-              <div className="flex items-center gap-3 rounded-2xl border border-gold/30 bg-forest/90 px-4 py-3 shadow-glow backdrop-blur-sm">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-gold text-forest">
-                  <Leaf size={17} aria-hidden />
-                </span>
-                <div className="text-[11px] leading-tight">
-                  <div className="font-bold text-cream">Sustainable</div>
-                  <div className="text-cream/60">agribusiness</div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
+          <span className="h-px w-12 bg-gold/60" aria-hidden />
+          From subsistence farming to sustainable agribusiness.
+        </motion.p>
+      </motion.div>
     </section>
+  );
+}
+
+function MoodHills({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 800 600"
+      preserveAspectRatio="none"
+      className={`absolute inset-0 h-full w-full ${className ?? ""}`}
+      aria-hidden
+     
+    >
+      <path d="M0,300 C140,250 300,265 430,215 C560,168 680,205 800,150 L800,600 L0,600 Z" fill="rgba(93,138,90,0.28)" />
+      <path d="M0,420 C170,360 340,390 520,320 C640,276 720,318 800,292 L800,600 L0,600 Z" fill="rgba(47,107,73,0.5)" />
+      <path d="M0,540 C160,478 340,505 520,448 C640,412 720,452 800,424 L800,600 L0,600 Z" fill="rgba(22,61,43,0.72)" />
+      <g stroke="rgba(247,243,232,0.22)" strokeWidth="2" fill="none">
+        <path d="M0,500 C160,452 340,477 520,426" />
+        <path d="M0,530 C160,484 340,509 520,460" />
+        <path d="M20,560 C180,516 360,541 540,494" />
+      </g>
+    </svg>
   );
 }

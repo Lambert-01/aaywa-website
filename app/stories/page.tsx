@@ -4,7 +4,7 @@ import { ArrowRight, ShieldCheck } from "lucide-react";
 import { getPublishedStories } from "@/data/stories";
 import PageHero from "@/components/ui/PageHero";
 import StoryCard from "@/components/ui/StoryCard";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
 
@@ -36,10 +36,9 @@ export default function StoriesPage() {
     <>
       <PageHero
         eyebrow="Stories of change"
-        title="The women behind the movement."
-        text="The heart of AAYWA is human. Here we will share the journeys of young African women building enterprises, leadership and lasting change — in their own words and with their full consent."
-        image="/images/stories-1.jpg"
-        imageAlt="A young African woman in an agricultural setting"
+        title="Stories will be told in their own voices."
+        text="AAYWA publishes stories only with the informed consent of the women whose journeys they represent. Verified stories will appear here as programmes grow."
+        scene="sunrise"
         crumbs={[{ label: "Home", href: "/" }, { label: "Stories" }]}
       />
 
@@ -54,20 +53,13 @@ export default function StoriesPage() {
           ) : (
             <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-20">
               <Reveal>
-                <PhotoFrame
-                  src="/images/journey-woman.jpg"
-                  alt="A young African woman at the heart of AAYWA's work"
+                <Scene
+                  variant="soil"
                   aspect="portrait"
-                  sizes="(min-width: 1024px) 44vw, 100vw"
                   rounded="rounded-[1.8rem] sm:rounded-[2.2rem]"
                   className="w-full shadow-soft"
-                  overlay={
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16">
-                      <p className="text-sm font-medium text-cream">
-                        Their stories come first — patient, truthful and personal.
-                      </p>
-                    </div>
-                  }
+                  label="Soil, seedling and open ground — the respectful beginning of every story"
+                  caption="Their stories come first — patient, truthful and personal."
                 />
               </Reveal>
 

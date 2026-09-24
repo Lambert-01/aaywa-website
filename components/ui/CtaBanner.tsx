@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Sprout } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
 
@@ -23,17 +22,23 @@ export default function CtaBanner({
     <section className="pb-24 sm:pb-28">
       <div className="container-aaywa">
         <div className="relative overflow-hidden rounded-[2rem] bg-forest px-7 py-14 text-cream sm:px-14 sm:py-16">
-          <Image
-            src="/images/cta-background.jpg"
-            alt=""
-            fill
-            unoptimized
-            sizes="(min-width: 1024px) 90vw, 100vw"
-            className="object-cover"
+          <svg
+            viewBox="0 0 800 600"
+            preserveAspectRatio="none"
+            className="absolute inset-0 h-full w-full"
             aria-hidden
-          />
+           
+          >
+            <path d="M0,320 C140,270 300,285 430,235 C560,188 680,225 800,170 L800,600 L0,600 Z" fill="rgba(93,138,90,0.22)" />
+            <path d="M0,440 C170,380 340,410 520,340 C640,296 720,338 800,312 L800,600 L0,600 Z" fill="rgba(47,107,73,0.30)" />
+            <path d="M0,560 C160,498 340,525 520,468 C640,432 720,472 800,444 L800,600 L0,600 Z" fill="rgba(22,61,43,0.5)" />
+            <g stroke="rgba(247,243,232,0.16)" strokeWidth="2" fill="none">
+              <path d="M0,520 C160,472 340,497 520,446" />
+              <path d="M0,550 C160,504 340,529 520,480" />
+            </g>
+          </svg>
           <div
-            className="absolute inset-0 bg-forest/80"
+            className="absolute inset-0"
             aria-hidden
             style={{
               background:

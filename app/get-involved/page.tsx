@@ -22,8 +22,7 @@ export default function GetInvolvedPage() {
         eyebrow="Get involved"
         title="A place for every kind of believer in women-led change."
         text="AAYWA grows through people — farmers, mentors, partners, funders, buyers and researchers. Find your place in the ecosystem."
-        image="/images/hero-primary.jpg"
-        imageAlt="Young women working in agriculture"
+        scene="tree"
         crumbs={[{ label: "Home", href: "/" }, { label: "Get Involved" }]}
       />
 

@@ -7,6 +7,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react";
+import type { SceneName } from "@/components/ui/Scene";
 
 export type Pillar = {
   id: string;
@@ -17,7 +18,7 @@ export type Pillar = {
   impact: string;
   icon: LucideIcon;
   color: string;
-  image: string;
+  scene: SceneName;
 };
 
 export const PILLARS: Pillar[] = [
@@ -31,7 +32,7 @@ export const PILLARS: Pillar[] = [
     impact: "Profitable enterprises led and owned by young women",
     icon: BriefcaseBusiness,
     color: "gold",
-    image: "/images/work-agribusiness.jpg",
+    scene: "fields",
   },
   {
     id: "sustainable-agriculture",
@@ -43,7 +44,7 @@ export const PILLARS: Pillar[] = [
     impact: "Climate-resilient farms and healthier landscapes",
     icon: Leaf,
     color: "leaf",
-    image: "/images/work-sustainable.jpg",
+    scene: "soil",
   },
   {
     id: "market-access",
@@ -55,7 +56,7 @@ export const PILLARS: Pillar[] = [
     impact: "Reliable, fair and growing market connections",
     icon: Globe2,
     color: "forest",
-    image: "/images/work-markets.jpg",
+    scene: "crates",
   },
   {
     id: "finance-readiness",
@@ -67,7 +68,7 @@ export const PILLARS: Pillar[] = [
     impact: "Enterprises ready for finance and investment",
     icon: BadgeDollarSign,
     color: "earth",
-    image: "/images/work-finance.jpg",
+    scene: "ledger",
   },
   {
     id: "leadership-mentorship",
@@ -79,7 +80,7 @@ export const PILLARS: Pillar[] = [
     impact: "A new generation of women leaders in agriculture",
     icon: Users,
     color: "gold",
-    image: "/images/work-leadership.jpg",
+    scene: "tree",
   },
   {
     id: "innovation",
@@ -91,9 +92,21 @@ export const PILLARS: Pillar[] = [
     impact: "Smarter, tech-enabled agribusinesses",
     icon: Sprout,
     color: "leaf",
-    image: "/images/work-innovation.jpg",
+    scene: "greenhouse",
   },
 ];
+
+export const SCENE_LABELS: Record<SceneName, string> = {
+  fields: "Cultivated field rows stretching toward the hills",
+  soil: "Rich agricultural soil with a growing seedling",
+  crates: "Market crates of freshly harvested produce",
+  ledger: "An agricultural business ledger with gold annotations",
+  tree: "A young tree taking root on green hills",
+  greenhouse: "A greenhouse interior crossed by an irrigation grid",
+  hills: "Rolling cultivated hills under open sky",
+  sunrise: "Fields aglow at sunrise",
+  terraces: "Terraced hillsides carved into farmland",
+};
 
 export const WORK_PILLARS_EXTRAS = {
   challenge: {

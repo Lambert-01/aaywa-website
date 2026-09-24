@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import CTAButton from "@/components/ui/CTAButton";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -28,8 +28,8 @@ export default function StoriesSection() {
           <Reveal>
             <SectionHeading
               eyebrow="Stories of change"
-              title="The women behind the movement."
-              text="Our work is only credible if the women at its centre are seen and heard. Their stories come first — in their own words, with their consent."
+              title="Stories will be told in their own voices."
+              text="AAYWA publishes stories only with the informed consent of the women whose journeys they represent. Verified stories will appear here as programmes grow."
             />
           </Reveal>
           <Reveal delay={0.1} className="shrink-0">
@@ -41,20 +41,13 @@ export default function StoriesSection() {
 
         <div className="mt-14 grid items-stretch gap-8 lg:grid-cols-2 lg:gap-14">
           <Reveal>
-            <PhotoFrame
-              src="/images/stories-3.jpg"
-              alt="A young African woman in an agricultural setting"
+            <Scene
+              variant="soil"
               aspect="portrait"
-              sizes="(min-width: 1024px) 46vw, 100vw"
               rounded="rounded-[1.8rem] sm:rounded-[2.2rem]"
               className="h-full min-h-[22rem] w-full shadow-soft"
-              overlay={
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16">
-                  <p className="text-sm font-medium text-cream">
-                    Real change begins with real stories — patient, truthful and personal.
-                  </p>
-                </div>
-              }
+              label="Soil and a growing seedling — the patient beginning of every story"
+              caption="Real change begins with real stories — patient, truthful and personal."
             />
           </Reveal>
 
@@ -76,7 +69,7 @@ export default function StoriesSection() {
               ))}
             </ul>
 
-            <div className="mt-10 rounded-[1.4rem] border border-dashed border-forest/20 bg-white p-6">
+            <div className="mt-10 border-l-2 border-gold bg-white px-6 py-5">
               <p className="text-sm leading-6 text-forest/70">
                 <span className="font-bold text-forest">Stories are on their way —</span>{" "}
                 collected directly, verified and published only with each

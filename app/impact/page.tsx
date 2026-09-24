@@ -3,7 +3,7 @@ import { Globe2, LineChart, TreePalm, type LucideIcon } from "lucide-react";
 import { IMPACT_CATEGORIES, MEASURES } from "@/data/impact";
 import PageHero from "@/components/ui/PageHero";
 import QuoteBlock from "@/components/ui/QuoteBlock";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
 import PartnersStrip from "@/components/ui/PartnersStrip";
@@ -27,8 +27,7 @@ export default function ImpactPage() {
         eyebrow="Our impact"
         title="Transformation you can follow, not just count."
         text="We measure the change created around women-led agribusiness — social, economic and environmental."
-        image="/images/journey-woman.jpg"
-        imageAlt="A young African woman at the heart of AAYWA's work"
+        scene="terraces"
         crumbs={[{ label: "Home", href: "/" }, { label: "Impact" }]}
       />
 
@@ -96,26 +95,21 @@ export default function ImpactPage() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="relative">
-              <PhotoFrame
-                src="/images/impact-field.jpg"
-                alt="Thriving farmland managed through sustainable agriculture"
-                aspect="landscape"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                rounded="rounded-[1.8rem]"
-                className="w-full shadow-soft"
-              />
-              <div className="absolute -bottom-8 -left-2 w-[45%] sm:-left-6 sm:w-[38%]">
-                <PhotoFrame
-                  src="/images/impact-community.jpg"
-                  alt="Community members working together on shared goals"
-                  aspect="square"
-                  sizes="(min-width: 1024px) 16vw, 38vw"
-                  rounded="rounded-[1.4rem] ring-[6px] ring-paper sm:rounded-[1.6rem]"
-                  className="shadow-lifted"
-                />
-              </div>
-            </div>
+            <Scene
+              variant="fields"
+              aspect="landscape"
+              rounded="rounded-[1.8rem]"
+              className="w-full shadow-soft"
+              label="Cultivated fields — the ground on which impact is measured"
+              overlay={
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-forest/60 to-transparent px-5 pb-4 pt-14">
+                  <p className="text-sm font-semibold text-cream">
+                    Quantitative results are published only after programme data has
+                    been verified and approved for public release.
+                  </p>
+                </div>
+              }
+            />
           </Reveal>
         </div>
       </section>

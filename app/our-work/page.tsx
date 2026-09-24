@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { PILLARS } from "@/data/pillars";
+import { PILLARS, SCENE_LABELS } from "@/data/pillars";
 import PageHero from "@/components/ui/PageHero";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
 import PartnersStrip from "@/components/ui/PartnersStrip";
@@ -21,8 +21,7 @@ export default function OurWorkPage() {
         eyebrow="Our Work"
         title="Six pillars. One purpose: women-led agribusiness that lasts."
         text="Every AAYWA programme is built around the full journey — from knowledge to production, from enterprise to markets, and from markets to leadership."
-        image="/images/impact-community.jpg"
-        imageAlt="Community members working together on shared goals"
+        scene="fields"
         crumbs={[{ label: "Home", href: "/" }, { label: "Our Work" }]}
       />
 
@@ -38,11 +37,10 @@ export default function OurWorkPage() {
               )}
             >
               <Reveal className={cn(index % 2 === 1 && "lg:[direction:ltr]")}>
-                <PhotoFrame
-                  src={pillar.image}
-                  alt={pillar.title}
+                <Scene
+                  variant={pillar.scene}
+                  label={SCENE_LABELS[pillar.scene]}
                   aspect="landscape"
-                  sizes="(min-width: 1024px) 45vw, 100vw"
                   rounded="rounded-[1.8rem] lg:rounded-[2.2rem]"
                   caption={pillar.impact}
                   className="shadow-soft"

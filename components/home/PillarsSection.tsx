@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { PILLARS } from "@/data/pillars";
+import { PILLARS, SCENE_LABELS } from "@/data/pillars";
 import CTAButton from "@/components/ui/CTAButton";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -36,11 +36,10 @@ export default function PillarsSection() {
                 className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-14"
               >
                 <Reveal y={28} className={imageFirst ? "lg:order-1" : "lg:order-2"}>
-                  <PhotoFrame
-                    src={pillar.image}
-                    alt={`${pillar.title} in practice`}
+                  <Scene
+                    variant={pillar.scene}
+                    label={SCENE_LABELS[pillar.scene]}
                     aspect="landscape"
-                    sizes="(min-width: 1024px) 46vw, 100vw"
                     rounded="rounded-[1.8rem] sm:rounded-[2rem]"
                     className="shadow-soft"
                   />

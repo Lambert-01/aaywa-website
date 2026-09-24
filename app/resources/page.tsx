@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { RESOURCE_CATEGORIES } from "@/data/resources";
 import PageHero from "@/components/ui/PageHero";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import NewsletterForm from "@/components/ui/NewsletterForm";
@@ -40,8 +40,7 @@ export default function ResourcesPage() {
         eyebrow="Resources"
         title="Knowledge built for women building agribusinesses."
         text="Practical, honest and Africa-rooted resources — from training tools and business guides to research, reports and market insight."
-        image="/images/about-accent.jpg"
-        imageAlt="Learning within an agricultural setting"
+        scene="ledger"
         crumbs={[{ label: "Home", href: "/" }, { label: "Resources" }]}
       />
 
@@ -49,13 +48,12 @@ export default function ResourcesPage() {
         <div className="container-aaywa">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             <Reveal>
-              <PhotoFrame
-                src="/images/resources-feature.jpg"
-                alt="Learning materials and documentation for agribusiness"
+              <Scene
+                variant="ledger"
                 aspect="wide"
-                sizes="(min-width: 1024px) 48vw, 100vw"
                 rounded="rounded-[1.8rem]"
                 className="shadow-soft"
+                label="An agricultural ledger with notes and a small sprout"
               />
             </Reveal>
             <Reveal delay={0.1} className="flex flex-col justify-center">

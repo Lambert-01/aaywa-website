@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { INVOLVE_PATHS } from "@/data/getInvolved";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -19,13 +19,12 @@ export default function GetInvolvedSection() {
           </Reveal>
 
           <Reveal delay={0.1} className="mt-10 hidden lg:block">
-            <PhotoFrame
-              src="/images/get-involved.jpg"
-              alt="Hands joined in partnership around agriculture"
+            <Scene
+              variant="fields"
               aspect="landscape"
-              sizes="(min-width: 1024px) 34vw, 80vw"
               rounded="rounded-[1.8rem]"
               className="w-full max-w-sm shadow-soft"
+              label="Field rows — where partners, mentors and farmers come together"
             />
           </Reveal>
         </div>

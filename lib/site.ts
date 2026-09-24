@@ -30,33 +30,17 @@ export const ACTIVE_SOCIALS = CONTACT.socials.filter(
   (social) => Boolean(social.href) && social.href !== "#"
 );
 
-export type NavChild = { label: string; href: string };
-
 export type NavItem = {
   label: string;
   href: string;
-  children?: NavChild[];
 };
 
 export const NAV: NavItem[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  {
-    label: "Our Work",
-    href: "/our-work",
-    children: [
-      { label: "Agribusiness Development", href: "/our-work#agribusiness" },
-      { label: "Sustainable Agriculture", href: "/our-work#sustainable-agriculture" },
-      { label: "Market Access", href: "/our-work#market-access" },
-      { label: "Finance & Investment Readiness", href: "/our-work#finance-readiness" },
-      { label: "Leadership & Mentorship", href: "/our-work#leadership-mentorship" },
-      { label: "Innovation & Digital Agriculture", href: "/our-work#innovation" },
-    ],
-  },
+  { label: "Our Work", href: "/our-work" },
   { label: "Impact", href: "/impact" },
-  { label: "Stories", href: "/stories" },
-  { label: "Resources", href: "/resources" },
-  { label: "Get Involved", href: "/get-involved" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const FOOTER_NAV = {

@@ -1,6 +1,6 @@
 import { WHO_WE_SERVE } from "@/data/serve";
 import CTAButton from "@/components/ui/CTAButton";
-import PhotoFrame from "@/components/ui/PhotoFrame";
+import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -9,15 +9,14 @@ export default function WhoWeServeSection() {
     <section className="bg-sage/40 py-24 sm:py-28">
       <div className="container-aaywa grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal className="relative">
-          <PhotoFrame
-            src="/images/who-we-serve.jpg"
-            alt="Young women farmers working together in community"
+          <Scene
+            variant="terraces"
             aspect="portrait"
-            sizes="(min-width: 1024px) 40vw, 90vw"
             rounded="rounded-[2rem] sm:rounded-[2.6rem]"
             className="w-full max-w-lg shadow-soft"
+            label="Terraced farmland walkable by the women AAYWA serves"
             overlay={
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/60 to-transparent px-6 pb-5 pt-16">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16">
                 <p className="text-sm font-semibold text-cream">
                   Dignity, agency and ownership — never charity
                 </p>
