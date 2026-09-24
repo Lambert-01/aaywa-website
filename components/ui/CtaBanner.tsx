@@ -27,6 +27,7 @@ export default function CtaBanner({
             src="/images/cta-background.jpg"
             alt=""
             fill
+            unoptimized
             sizes="(min-width: 1024px) 90vw, 100vw"
             className="object-cover"
             aria-hidden
