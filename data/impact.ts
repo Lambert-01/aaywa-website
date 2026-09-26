@@ -32,27 +32,27 @@ export const MEASURES: Measure[] = [
   {
     id: "reach",
     title: "Young women reached",
-    text: "Women from rural and urban communities reached through programmes and networks.",
+    text: "Young women from rural and urban communities reached through programmes and networks.",
   },
   {
     id: "skills",
     title: "Trained & skilled",
-    text: "Women completing training in agribusiness, leadership and climate-smart practice.",
+    text: "Young women completing training in agribusiness, leadership and climate-smart practice.",
   },
   {
     id: "enterprises",
     title: "Enterprises growing",
-    text: "Women-led agribusinesses strengthened, formalized and expanding.",
+    text: "Young women-led agribusinesses strengthened, formalized and expanding.",
   },
   {
     id: "livelihoods",
     title: "Income & jobs",
-    text: "Jobs and income opportunities created around women-led enterprises.",
+    text: "Jobs and income opportunities created around young women-led enterprises.",
   },
   {
     id: "leadership",
-    title: "Women leading",
-    text: "Women stepping into decision-making roles in groups, markets and communities.",
+    title: "Young women leading",
+    text: "Young women stepping into decision-making roles in groups, markets and communities.",
   },
   {
     id: "partnerships",

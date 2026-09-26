@@ -6,7 +6,6 @@ import QuoteBlock from "@/components/ui/QuoteBlock";
 import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
-import PartnersStrip from "@/components/ui/PartnersStrip";
 
 export const metadata: Metadata = {
   title: "Impact",
@@ -113,8 +112,6 @@ export default function ImpactPage() {
           </Reveal>
         </div>
       </section>
-
-      <PartnersStrip />
 
       <div className="pt-10">
         <CtaBanner

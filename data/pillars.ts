@@ -28,7 +28,7 @@ export const PILLARS: Pillar[] = [
     title: "Agribusiness & Entrepreneurship",
     short:
       "Turning farming into a viable enterprise with business models, planning, record-keeping, quality and value addition.",
-    long: "AAYWA supports young women to move beyond subsistence farming by building strong business foundations: models, planning, financial records, product quality, processing and value addition. The goal is profitable, sustainable enterprises that women own and run.",
+    long: "AAYWA supports young women to move beyond subsistence farming by building strong business foundations: models, planning, financial records, product quality, processing and value addition. The goal is profitable, sustainable enterprises that young women own and run.",
     impact: "Profitable enterprises led and owned by young women",
     icon: BriefcaseBusiness,
     color: "gold",
@@ -64,7 +64,7 @@ export const PILLARS: Pillar[] = [
     title: "Finance & Investment Readiness",
     short:
       "Helping women organize their records, businesses and plans to attract finance and investment.",
-    long: "Many young women farmers are creditworthy but not yet visible to finance. AAYWA strengthens financial literacy, organization and investor readiness so that women-led enterprises can access the capital they need to grow.",
+    long: "Many young women farmers are creditworthy but not yet visible to finance. AAYWA strengthens financial literacy, organization and investor readiness so that young women-led enterprises can access the capital they need to grow.",
     impact: "Enterprises ready for finance and investment",
     icon: BadgeDollarSign,
     color: "earth",
@@ -77,7 +77,7 @@ export const PILLARS: Pillar[] = [
     short:
       "Growing confident women leaders who influence communities, inspire others and create lasting change.",
     long: "Leadership is embedded across everything AAYWA does. Mentored by accomplished women and peers, young agripreneurs build the confidence, voice and networks to lead their enterprises and their communities.",
-    impact: "A new generation of women leaders in agriculture",
+    impact: "A new generation of young women leaders in agriculture",
     icon: Users,
     color: "gold",
     scene: "tree",

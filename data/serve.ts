@@ -10,15 +10,15 @@ export const WHO_WE_SERVE: ServeGroup[] = [
   },
   {
     title: "Emerging agripreneurs",
-    text: "Women building businesses across agriculture and food systems.",
+    text: "Young women building businesses across agriculture and food systems.",
   },
   {
-    title: "Women-led farmer groups",
+    title: "Young women-led farmer groups",
     text: "Collectives and cooperatives growing through shared strength.",
   },
   {
     title: "Young women innovators",
-    text: "Women using ideas, technology and indigenous knowledge.",
+    text: "Young women using ideas, technology and indigenous knowledge.",
   },
   {
     title: "Teen mothers seeking livelihoods",
@@ -26,6 +26,6 @@ export const WHO_WE_SERVE: ServeGroup[] = [
   },
   {
     title: "Community leaders",
-    text: "Women transforming families, communities and food systems.",
+    text: "Young women transforming families, communities and food systems.",
   },
 ];

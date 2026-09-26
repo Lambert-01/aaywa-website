@@ -32,7 +32,7 @@ export default function AboutPreview() {
               About AAYWA
             </p>
             <h2 className="mt-4 font-serif text-balance text-[clamp(1.9rem,4vw,3rem)] leading-[1.1] tracking-tight text-forest">
-              Where women grow,
+              Where young women grow,
               <br />
               communities flourish.
             </h2>
@@ -43,7 +43,7 @@ export default function AboutPreview() {
               global economy.
             </p>
             <p className="mt-4 max-w-readable text-pretty leading-8 text-forest/70">
-              We walk alongside women from their first step in agriculture to
+              We walk alongside young women from their first step in agriculture to
               leading enterprises that transform their communities.
             </p>
           </Reveal>

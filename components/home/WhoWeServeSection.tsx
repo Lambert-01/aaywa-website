@@ -38,7 +38,7 @@ export default function WhoWeServeSection() {
               Young women shaping their future through agriculture.
             </h2>
             <p className="mt-5 leading-8 text-forest/70">
-              We serve women as leaders, entrepreneurs, farmers, innovators and
+              We serve young women as leaders, entrepreneurs, farmers, innovators and
               decision-makers — working beside them with dignity, agency and
               respect.
             </p>

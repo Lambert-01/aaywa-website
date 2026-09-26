@@ -19,7 +19,7 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About AAYWA"
-        title="An African organization growing women leaders through agribusiness."
+        title="An African organization growing young women leaders through agribusiness."
         text="We believe young African women are not simply part of agriculture — they can shape its future."
         scene="terraces"
         crumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
@@ -41,13 +41,13 @@ export default function AboutPage() {
               agribusiness — as entrepreneurs, innovators and decision-makers.
             </p>
             <p className="mt-4 text-pretty leading-8 text-forest/70">
-              We walk alongside women from their first step in agriculture to
+              We walk alongside young women from their first step in agriculture to
               leading enterprises that transform their communities and food
               systems.
             </p>
             <div className="mt-8">
               <QuoteBlock
-                quote="Where women grow, communities flourish."
+                quote="Where young women grow, communities flourish."
                 source="The idea at the heart of AAYWA"
               />
             </div>

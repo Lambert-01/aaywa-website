@@ -4,7 +4,6 @@ import { PILLARS } from "@/data/pillars";
 import PageHero from "@/components/ui/PageHero";
 import Reveal from "@/components/ui/Reveal";
 import CtaBanner from "@/components/ui/CtaBanner";
-import PartnersStrip from "@/components/ui/PartnersStrip";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -109,12 +108,10 @@ export default function OurWorkPage() {
         </div>
       </Reveal>
 
-      <PartnersStrip />
-
       <div className="pt-10">
         <CtaBanner
-          title="Built around women. Ready for partnership."
-          text="If your organization accelerates women in agriculture — through finance, markets, research or technology — let's combine forces."
+          title="Built around young women. Ready for partnership."
+          text="If your organization accelerates young women in agriculture — through finance, markets, research or technology — let's combine forces."
           primaryLabel="Partner With AAYWA"
           primaryHref="/get-involved#partner"
           secondaryLabel="Get involved"
