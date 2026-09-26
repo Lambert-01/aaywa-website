@@ -1,43 +1,47 @@
+import Image from "next/image";
 import { WHO_WE_SERVE } from "@/data/serve";
 import CTAButton from "@/components/ui/CTAButton";
-import Scene from "@/components/ui/Scene";
 import Reveal from "@/components/ui/Reveal";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function WhoWeServeSection() {
   return (
-    <section className="bg-sage/40 py-24 sm:py-28">
+    <section className="bg-sage/40 py-20 sm:py-24">
       <div className="container-aaywa grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <Reveal className="relative">
-          <Scene
-            variant="terraces"
-            aspect="portrait"
-            rounded="rounded-[2rem] sm:rounded-[2.6rem]"
-            className="w-full max-w-lg shadow-soft"
-            label="Terraced farmland walkable by the women AAYWA serves"
-            overlay={
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16">
+          <div className="relative overflow-hidden rounded-[10px] shadow-soft">
+            <div className="relative aspect-[3/4] w-full max-w-lg">
+              <Image
+                src="/images/woman-working-farm.jpg"
+                alt="A young woman working on her farm — representing the women AAYWA serves"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-center"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/70 to-transparent px-6 pb-5 pt-16"
+              >
                 <p className="text-sm font-semibold text-cream">
                   Dignity, agency and ownership — never charity
                 </p>
               </div>
-            }
-          />
-          <div className="absolute -bottom-6 -left-4 hidden rounded-2xl bg-white px-6 py-5 shadow-soft sm:block">
-            <div className="font-serif text-3xl text-forest">6</div>
-            <div className="mt-1 max-w-[9rem] text-xs leading-4 text-forest/60">
-              groups at the heart of our work
             </div>
           </div>
         </Reveal>
 
         <div>
           <Reveal>
-            <SectionHeading
-              eyebrow="Who we serve"
-              title="Young women ready to shape their future through agriculture."
-              text="We serve women as leaders, entrepreneurs, farmers, innovators and decision-makers — working beside them with dignity, agency and respect."
-            />
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-earth">
+              Who we serve
+            </p>
+            <h2 className="mt-4 font-serif text-balance text-[clamp(1.9rem,4vw,3rem)] leading-[1.1] tracking-tight text-forest">
+              Young women shaping their future through agriculture.
+            </h2>
+            <p className="mt-5 leading-8 text-forest/70">
+              We serve women as leaders, entrepreneurs, farmers, innovators and
+              decision-makers — working beside them with dignity, agency and
+              respect.
+            </p>
           </Reveal>
 
           <ol className="mt-10">

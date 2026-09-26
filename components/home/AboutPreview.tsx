@@ -1,95 +1,58 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+"use client";
+
+import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
-import Scene from "@/components/ui/Scene";
-import QuoteBlock from "@/components/ui/QuoteBlock";
 import CTAButton from "@/components/ui/CTAButton";
 
 export default function AboutPreview() {
   return (
-    <section className="soft-grid relative py-24 sm:py-28">
-      <div className="container-aaywa grid items-center gap-16 lg:grid-cols-[1fr_0.95fr] lg:gap-20">
+    <section className="py-20 sm:py-24">
+      <div className="container-aaywa grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal className="order-2 lg:order-1">
-          <div className="relative">
-            <Scene
-              variant="hills"
-              aspect="portrait"
-              rounded="rounded-[2rem] sm:rounded-[2.6rem]"
-              className="w-full max-w-md shadow-soft"
-              label="Green agricultural hills around a woman-led farm"
-            />
-            <div className="absolute bottom-6 left-6 right-6 z-10">
-              <div className="flex items-center justify-between gap-3 border-l-2 border-gold bg-forest/80 px-4 py-3 backdrop-blur-sm">
-                <span className="text-xs font-bold uppercase tracking-[0.16em] text-cream">
-                  Sisterhood · Leadership · Growth
-                </span>
-                <span className="h-2 w-2 shrink-0 rounded-full bg-gold" aria-hidden />
-              </div>
+          <div className="relative overflow-hidden rounded-[10px] shadow-soft">
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src="/images/woman-planting-field.jpg"
+                alt="A young woman tending her farm — the heart of AAYWA's work"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover object-center"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-forest/40 to-transparent"
+              />
             </div>
           </div>
         </Reveal>
 
         <div className="order-1 lg:order-2">
           <Reveal>
-            <div className="eyebrow text-[0.72rem] font-bold uppercase tracking-[0.22em] text-earth">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-earth">
               About AAYWA
-            </div>
-            <h2 className="mt-4 font-serif text-balance text-[clamp(1.9rem,4vw,3.1rem)] leading-[1.1] tracking-tight text-forest">
-              Where women grow, communities flourish.
+            </p>
+            <h2 className="mt-4 font-serif text-balance text-[clamp(1.9rem,4vw,3rem)] leading-[1.1] tracking-tight text-forest">
+              Where women grow,
+              <br />
+              communities flourish.
             </h2>
             <p className="mt-6 max-w-readable text-pretty leading-8 text-forest/70">
-              AAYWA is an African NGO empowering young women to move beyond
-              subsistence farming into profitable, sustainable agribusiness — giving
-              them ownership, knowledge, leadership and a place in the global economy.
+              AAYWA is an African NGO equipping young women to move beyond
+              subsistence farming into profitable, sustainable agribusiness —
+              giving them ownership, knowledge, leadership and a place in the
+              global economy.
+            </p>
+            <p className="mt-4 max-w-readable text-pretty leading-8 text-forest/70">
+              We walk alongside women from their first step in agriculture to
+              leading enterprises that transform their communities.
             </p>
           </Reveal>
-
-          <Reveal delay={0.1} className="mt-12 grid gap-10 sm:grid-cols-2">
-            <div className="border-l-2 border-gold pl-5">
-              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold">Vision</div>
-              <p className="mt-3 font-serif text-lg leading-snug text-forest">
-                Transforming the lives of young African women from subsistence
-                farming to sustainable agribusiness.
-              </p>
-            </div>
-            <div className="bg-forest px-6 py-5 text-cream">
-              <div className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold">Mission</div>
-              <p className="mt-3 text-sm leading-7 text-cream/85">
-                Empowering young African women to build profitable, sustainable
-                agribusinesses through training, finance, innovation, global markets
-                and ethical value chains — while developing leaders who create
-                lasting change.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15} className="mt-12 flex flex-wrap items-center gap-6">
+          <Reveal delay={0.1} className="mt-10">
             <CTAButton href="/about" variant="forest" size="lg" withArrow>
               Discover AAYWA
             </CTAButton>
-            <Link
-              href="/our-work"
-              className="group inline-flex items-center gap-1.5 text-sm font-bold text-leaf transition-colors hover:text-forest"
-            >
-              See how we work
-              <ArrowUpRight size={15} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
-            </Link>
           </Reveal>
         </div>
-      </div>
-
-      <div className="container-aaywa mt-24 grid gap-10 border-t border-forest/10 pt-16 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-16">
-        <Reveal>
-          <QuoteBlock
-            quote="We do not measure transformation by training alone. We follow the journey from opportunity to enterprise, and from enterprise to leadership."
-            source="A belief that shapes AAYWA"
-          />
-        </Reveal>
-        <Reveal delay={0.1}>
-          <CTAButton href="/impact" variant="outline-dark" withArrow>
-            Explore our impact story
-          </CTAButton>
-        </Reveal>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ type ValueCardProps = {
 
 export default function ValueCard({ title, text, icon: Icon }: ValueCardProps) {
   return (
-    <article className="group relative overflow-hidden rounded-[1.4rem] border border-forest/10 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-leaf/25 hover:shadow-soft">
+    <article className="group relative overflow-hidden rounded-[8px] border border-forest/10 bg-white p-6 transition-all duration-300 hover:border-leaf/25 hover:shadow-soft">
       <div
         className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-gold to-leaf transition-transform duration-500 group-hover:scale-x-100"
         aria-hidden

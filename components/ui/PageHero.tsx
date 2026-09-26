@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Scene, { type SceneName } from "@/components/ui/Scene";
@@ -10,6 +11,8 @@ type PageHeroProps = {
   crumbs?: { label: string; href?: string }[];
   variant?: "forest" | "cream";
   scene?: SceneName;
+  imageSrc?: string;
+  imageAlt?: string;
   className?: string;
 };
 
@@ -20,6 +23,8 @@ export default function PageHero({
   crumbs,
   variant = "forest",
   scene = "hills",
+  imageSrc,
+  imageAlt,
   className,
 }: PageHeroProps) {
   const light = variant === "cream";
@@ -35,11 +40,21 @@ export default function PageHero({
       )}
     >
       <div className="absolute inset-0" aria-hidden>
-        <Scene
-          variant={scene}
-          className="h-full w-full rounded-none"
-          aspect="wide"
-        />
+        {imageSrc ? (
+          <Image
+            src={imageSrc}
+            alt={imageAlt ?? ""}
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        ) : (
+          <Scene
+            variant={scene}
+            className="h-full w-full rounded-none"
+            aspect="wide"
+          />
+        )}
       </div>
       <div
         aria-hidden
@@ -52,7 +67,7 @@ export default function PageHero({
       />
       <div className="grain-layer" aria-hidden />
 
-      <div className="container-aaywa relative pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-44 lg:pb-28">
+      <div className="container-aaywa relative pb-16 pt-32 sm:pb-20 sm:pt-36 lg:pb-28 lg:pt-44">
         {crumbs && (
           <nav
             aria-label="Breadcrumb"

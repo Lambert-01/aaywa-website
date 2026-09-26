@@ -106,13 +106,7 @@ export default function HeroSection() {
           </CTAButton>
         </motion.div>
 
-        <motion.p
-          variants={item}
-          className="mt-12 flex items-center gap-3 text-sm font-medium text-cream/55"
-        >
-          <span className="h-px w-12 bg-gold/60" aria-hidden />
-          From subsistence farming to sustainable agribusiness.
-        </motion.p>
+
       </motion.div>
     </section>
   );

@@ -1,13 +1,9 @@
 import HeroSection from "@/components/home/HeroSection";
 import AboutPreview from "@/components/home/AboutPreview";
-import ChallengeSection from "@/components/home/ChallengeSection";
 import PillarsSection from "@/components/home/PillarsSection";
-import JourneySection from "@/components/home/JourneySection";
+import SisterhoodSection from "@/components/home/SisterhoodSection";
 import ImpactSection from "@/components/home/ImpactSection";
 import WhoWeServeSection from "@/components/home/WhoWeServeSection";
-import GetInvolvedSection from "@/components/home/GetInvolvedSection";
-import StoriesSection from "@/components/home/StoriesSection";
-import ResourcesPreview from "@/components/home/ResourcesPreview";
 import CtaBanner from "@/components/ui/CtaBanner";
 
 export default function Home() {
@@ -15,14 +11,10 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutPreview />
-      <ChallengeSection />
       <PillarsSection />
-      <JourneySection />
+      <SisterhoodSection />
       <ImpactSection />
       <WhoWeServeSection />
-      <GetInvolvedSection />
-      <StoriesSection />
-      <ResourcesPreview />
       <div className="pt-10">
         <CtaBanner
           title="Grow with AAYWA."

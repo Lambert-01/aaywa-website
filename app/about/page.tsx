@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/ui/PageHero";
-import AboutPreview from "@/components/home/AboutPreview";
 import ValuesSection from "@/components/home/ValuesSection";
 import TeamSection from "@/components/home/TeamSection";
 import WhoWeServeSection from "@/components/home/WhoWeServeSection";
@@ -25,46 +25,131 @@ export default function AboutPage() {
         crumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
       />
 
-      <section className="py-24 sm:py-28">
-        <div className="container-aaywa">
-          <div className="grid items-center gap-4 lg:grid-cols-[1fr_auto_1fr] lg:gap-10">
-            <Reveal>
-              <div className="pr-0 lg:pr-8">
-                <div className="eyebrow text-[0.72rem] font-bold uppercase tracking-[0.22em] text-earth">
-                  Who we are
-                </div>
-                <h2 className="mt-4 font-serif text-balance text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.12] tracking-tight text-forest">
-                  Women-led. Africa-rooted. Enterprise-focused.
-                </h2>
-                <p className="mt-5 text-pretty leading-8 text-forest/70">
-                  AAYWA is an African NGO empowering young women to move beyond
-                  subsistence farming into profitable, sustainable and resilient
-                  agribusiness — as entrepreneurs, innovators and decision-makers.
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={0.08} className="lg:self-stretch">
-              <div className="relative h-full" aria-hidden>
-                <div className="absolute inset-y-0 left-8 w-px bg-gradient-to-b from-transparent via-gold to-transparent lg:left-0" />
-                <div className="absolute left-8 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-gold lg:left-0" />
-              </div>
-            </Reveal>
-            <Reveal delay={0.12}>
+      {/* Our Story */}
+      <section className="py-20 sm:py-24">
+        <div className="container-aaywa grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-earth">
+              Who we are
+            </p>
+            <h2 className="mt-4 font-serif text-balance text-[clamp(1.8rem,3.6vw,2.8rem)] leading-[1.12] tracking-tight text-forest">
+              Women-led. Africa-rooted. Enterprise-focused.
+            </h2>
+            <p className="mt-5 text-pretty leading-8 text-forest/70">
+              AAYWA is an African NGO empowering young women to move beyond
+              subsistence farming into profitable, sustainable and resilient
+              agribusiness — as entrepreneurs, innovators and decision-makers.
+            </p>
+            <p className="mt-4 text-pretty leading-8 text-forest/70">
+              We walk alongside women from their first step in agriculture to
+              leading enterprises that transform their communities and food
+              systems.
+            </p>
+            <div className="mt-8">
               <QuoteBlock
                 quote="Where women grow, communities flourish."
                 source="The idea at the heart of AAYWA"
               />
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="relative overflow-hidden rounded-[10px] shadow-soft">
+              <div className="relative aspect-[4/5] w-full">
+                <Image
+                  src="/images/aaywa-young-women.jpg"
+                  alt="AAYWA young women — a community united by shared purpose and agricultural ambition"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Vision + Mission */}
+      <section className="bg-paper py-20 sm:py-24">
+        <div className="container-aaywa">
+          <Reveal>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-earth">
+              Vision &amp; Mission
+            </p>
+          </Reveal>
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            <Reveal delay={0.06}>
+              <div className="h-full rounded-[8px] border-l-4 border-gold bg-white px-8 py-8">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold">
+                  Vision
+                </p>
+                <p className="mt-4 font-serif text-xl leading-relaxed text-forest">
+                  Transforming the lives of young African women from subsistence
+                  farming to sustainable agribusiness.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="h-full rounded-[8px] bg-forest px-8 py-8 text-cream">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold">
+                  Mission
+                </p>
+                <p className="mt-4 leading-7 text-cream/85">
+                  Empowering young African women to build profitable, sustainable
+                  agribusinesses through training, finance, innovation, global
+                  markets and ethical value chains — while developing leaders who
+                  create lasting change.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>
       </section>
 
-      <AboutPreview />
-
+      {/* Values */}
       <ValuesSection />
 
+      {/* Sisterhood */}
+      <section className="py-20 sm:py-24">
+        <div className="container-aaywa">
+          <Reveal>
+            <div className="relative overflow-hidden rounded-[10px] shadow-soft">
+              <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
+                <Image
+                  src="/images/sisterhood.jpg"
+                  alt="AAYWA members gathered — a community of young women growing through shared strength"
+                  fill
+                  sizes="(min-width: 1280px) 1200px, 100vw"
+                  className="object-cover object-center"
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-forest/60 via-forest/10 to-transparent"
+                />
+              </div>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1} className="mx-auto mt-10 max-w-3xl text-center">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-earth">
+              Sisterhood
+            </p>
+            <h2 className="mt-4 font-serif text-balance text-[clamp(1.9rem,4vw,3rem)] leading-[1.1] tracking-tight text-forest">
+              Growth is stronger when it is shared.
+            </h2>
+            <p className="mt-5 text-pretty leading-8 text-forest/70">
+              AAYWA is more than a programme — it is a community of young women
+              who learn together, challenge each other and celebrate every step
+              forward. Peer support, shared knowledge and collective confidence
+              are at the heart of everything we do.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Team */}
       <TeamSection />
 
+      {/* Who We Serve */}
       <div id="who-we-serve">
         <WhoWeServeSection />
       </div>

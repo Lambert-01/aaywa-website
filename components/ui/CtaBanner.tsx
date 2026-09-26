@@ -21,7 +21,7 @@ export default function CtaBanner({
   return (
     <section className="pb-24 sm:pb-28">
       <div className="container-aaywa">
-        <div className="relative overflow-hidden rounded-[2rem] bg-forest px-7 py-14 text-cream sm:px-14 sm:py-16">
+        <div className="relative overflow-hidden rounded-[10px] bg-forest px-7 py-14 text-cream sm:px-14 sm:py-16">
           <svg
             viewBox="0 0 800 600"
             preserveAspectRatio="none"

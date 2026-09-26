@@ -17,6 +17,7 @@ export const MEMBERS: TeamMember[] = [
   { name: "Muhoza Faith", role: "Member", image: "/images/teams/muhoza-faith.jpg" },
   { name: "Uwodukunda Concilie", role: "Member", image: "/images/teams/uwodukunda-concilie.jpg" },
   { name: "Colombe Rukwaya", role: "Member", image: "/images/teams/colombe-rukwaya.jpg" },
+  { name: "Clarisse Munezero", role: "Member", image: "/images/teams/clarisse-munezero.jpg" },
 ];
 
 export const TEAM: TeamMember[] = [...EXECUTIVE, ...MEMBERS];
